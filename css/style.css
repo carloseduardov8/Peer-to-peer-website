@@ -515,6 +515,19 @@
 				width: 100%;
 			}
 
+		.image.text {
+			display: block;
+			margin: auto;
+			width: 50%;
+		}
+
+			.image.text img {
+				display: block;
+				width: 100%;
+			}
+
+
+
 /* List */
 
 	ol {
