@@ -62,10 +62,11 @@
 							<a href="#" class="image fit"><img src="images/world.jpg" alt="" class="headerImage"/></a>
 							<h3>Um Mundo Descentralizado</h3>
 							<p class="paragraphText"><span class="spaceTab"></span>Uma das práticas digitais que mais se popularizou nas últimas duas décadas foi o compartilhamento
-							de arquivos "torrents", que nada mais são do que metadados referentes ao conteúdo verdadeiramente desejado. Utilizar um sistema como esse
-							é ter contato direto com a arquitetura Par-a-Par: um "torrent" é a porta de entrada para baixar fragmentos do arquivo desejado diretamente de vários outros
+							de arquivos <i>torrents</i>, que nada mais são do que metadados referentes ao conteúdo verdadeiramente desejado. Utilizar um sistema como esse
+							é ter contato direto com a arquitetura Par-a-Par: um <i>torrent</i> é a porta de entrada para baixar fragmentos do arquivo desejado diretamente de vários outros
 							computadores, pertencentes a diversas pessoas diferentes. Com isso, podemos usufruir de uma arquitetura mais barata, mais versátil e mais fácil de ser configurada
 							quando comparada ao clássico modelo cliente-servidor. Mas, então, por que uma idea tão robusta como essa vem sendo alvo de tantas preocupações?</p>
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/overview.png" alt="" /></span></div>
 							<p class="paragraphText"><span class="spaceTab"></span>Veremos em breve que os desafios encontrados por sistemas como este estão longe de serem fáceis.
 							Antes, no entanto, convém definir de forma um pouco mais rigorosa este paradigma do mundo das redes, a fim de entendermos por
 							completo todas as suas implicações.</p>
@@ -82,12 +83,19 @@
 								conectividade variada (Ross Lee Graham);</li>
 								<li>um sistema com tempo de vida independente (Tim Kindberg, HP Labs).</li>
 							</ul>
-							<p class="paragraphText"><span class="spaceTab"></span>Apesar já ser possível perceber algumas das vantagens que um sistema como este pode
+							<p class="paragraphText"><span class="spaceTab"></span>Apesar de já ser possível perceber algumas das vantagens que um sistema como este pode
 							nos proporcionar, também começam a ficar claros os desafios que acabam surgindo. Tendo em mãos definições um pouco mais formais, podemos começar a entender alguns problemas
 							enfrentados no mundo atual decorrentes da popularização da arquitetura Par-a-Par.</p>
 							
 							<h3>Desafios distribuídos, lutas fragmentadas</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>
+							<p class="paragraphText"><span class="spaceTab"></span>Um sistema de compartilhamento de arquivos descentralizado abre brechas para alguns tipos de ataques. Além dos riscos
+							já conhecidos do modelo cliente-servidor, como mascarar arquivos maliciosos utilizando nomes inofensivos (e.g. um malware com o nome "<i>Orange is the New Black</i> Episódio 1"),
+							a arquitetura Par-a-Par dificulta o combate à pirataria. Os detentores dos direitos autorais precisam agora monitorar cada rede Par-a-Par, podendo processar diretamente os
+							usuários que compartilham sua propriedade intelectual de forma indevida. De acordo com o <i>Daily Express</i>, um dos jornais do Reino Unido, mais de 1000 processos por pirataria
+							em <i>torrent</i> foram emitidos durante os dois primeiros meses de 2018, a maioria por companhias produtoras de filmes adultos.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Além disso, como cada nó da aplicação também possui funções de servidor, a vulnerabilidade a ataques remotos aumenta.
+							Problemas de segurança nas aplicações Par-a-Par podem levar a investidas maliciosas, incluindo ataques de roteamento (e.g. encaminhar pedidos incorretamente) e de negação de serviço.
+							Dentre as diversas soluções buscadas para este último tipo de ataque, um artigo de 2011 sugere abordagens relacionadas a esconder a posição dos arquivos, diminuindo seu número de cópias.</p>
 							
 						</section>
 								
