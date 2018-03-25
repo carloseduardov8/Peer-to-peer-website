@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Redes Par-a-Par (Peer to Peer Networks)</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrollgress.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.slidertron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+		<link rel="stylesheet" href="css/no-footbar.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="index.html">Remote Method Invocation &nbsp&nbsp<span>GTA - UFRJ</span></a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Início</a></li>
+						<li><a href="mundo_distribuido.html">Um Mundo Distribuído</a></li>
+						<li><a href="o_que_e.html">O Que É RMI?</a></li>
+						<li><a href="rmi_x_rpc.html">RMI x RPC</a></li>
+						<li><a href="arquitetura.html">Arquitetura</a></li>
+						<li>
+							<a href="" class="icon fa-angle-down">Experimentos</a>
+							<ul>
+								<li><a href="codigo.html">Código-fonte</a></li>
+								<li><a href="experimentos.html">Resultados</a></li>
+							</ul>
+						</li>
+						<li><a href="questoes.html">Questões</a></li>
+						<li><a href="bibliografia.html">Bibliografia</a></li>
+					</ul>
+				</nav>
+			</header>
+			
+		<!-- Main -->
+			<section id="main" class="wrapper style1">
+				<header class="major">
+					<h2>Aplicações</h2>
+					<p>Sistemas que utilizam a arquitetura P2P</p>
+				</header>
+				<div class="container">
+						
+					<!-- Content -->
+						<section id="content">
+							<a href="#" class="image fit"><img src="images/world.jpg" alt="" class="headerImage"/></a>
+							<h3>BitTorrent</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>Um dos protocolos P2P mais populares para a distribuição de arquivos é o BitTorrent. O conjunto de todos os pares participantes de uma distribuição de um arquivo específico é chamado de <i>torrent</i>. O descarregamento de arquivos é feito em pedaços de tamanhos idênticos entre os pares, em geral o tamanho é de 256 KBytes. Quando um usuário entra na rede ele não possui nenhum pedaço e é necessário, naturalmente, primeiro descarregar partes do arquivo antes que seja possível compartilhá-lo. Depois de adquiri o arquivo em sua integridade, o usuário pode decidir simplesmente sair do <i>torrent</i> ou permanecer e contribuir distribuindo pedaços para outros pares.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Cada <i>torrent</i> possui um nó de infraestrutura chamado de <i>tracker</i>. Quando um par entra em um <i>torrent</i>, este par se registra com o <i>tracker</i> e periodicamente o informa que ainda está na rede. Assim, o <i>tracker</i> mantém registro de todos os pares que estão participando do <i>torrent</i>. É interessante ter em mente a escalabilidade de um <i>torrent</i>, visto que o mesmo pode ter até milhares de pares participando ao mesmo tempo.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Quando um novo par entra na rede, o <i>tracker</i> aleatoriamente seleciona um subconjunto de pares e envia seus endereços IP ao par recém-chegado. A partir desta lista de IPs o novo par tenta estabelecer conexões TCP com os pares listados. Os pares com os quais a conexão foi estabelecida com sucesso são nomeados pares vizinhos. Com o passar do tempo alguns destes pares podem sair e outros pares podem tentar estabelecer uma conexão TCP com o nó inicial.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>A cada certo intevalo de tempo, o par inicial solicitará uma lista com os pedaços do arquivo que cada um de seus vizinhos possui. Com isto, este nó poderá pedir os pedaços que ainda não possui do arquivo. Eventualmente, este par terá que decidir quais pedaços pedir aos vizinhos e para quais vizinhos enviar pedaços solicitados. A técnica utilizada para determinar qual o pedaço a ser solicitado é chamada de <i>rarest first</i> que consiste em selecionar os pedaços que têm menos cópias repetidas dentre os vizinhos. Na hora de decidir para quais pares responder é dada prioridade aos vizinhos que atualmente estão fornecendo dados à taxas mais altas.</p>
+							<a href="#" class="image text"><img src="images/file distribution bittorrent.png" alt="" ></a>
+
+							<br>
+							<br>
+
+							<h3>Skype</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>O protocolo utilizado no Skype é proprietário e por tal motivo não é trivial determinar com precisão como o Skype funciona. No entanto, sabe-se que por padrão, o Skype envia pacotes de vídeo e áudio através do UDP. Por outro lado, pacotes de controle são enviados através do TCP. Skype é um exemplo de como técnicas P2P podem ser utilizadas em aplicações diferentes de compartilhamento de arquivos ou distribuição de conteúdo.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Temos que os dois serviços principais do Skype, telefonia pela internet e mensagens instantâneas, são intrínsecamente P2P tendo em vista que a aplicação se resume a pares de usuários se comunicando em tempo real. Não obstante, há ainda duas outras funções que utilizam técnicas P2P: NAT transversal e localização de usuários. Uma hierarquia é formada pelos pares que são classificados entre um par ordinário ou um super par. É mantido um índice que mapeia nome de usuários do Skype a seus respectivos atuais endereços IP que é distribuído através dos super pares aos demais da hierarquia.</p>
+							
+							<a href="#" class="image text"><img src="images/skype.png" alt=""></a>
+
+							<br>
+							<br>
+
+							<h3>Otimização de Entrega do Windows</h3>
+							<h4>-Como a otimização de entrega funciona?</h4>
+							<p class="paragraphText"><span class="spaceTab"></span>A otimização de entrega funciona permitindo que você obtenha atualizações do Windows e aplicativos da Microsoft Store de outras fontes além da Microsoft, como outros PCs na rede local do usuário ou até mesmo de PCs da internet que estão descarregando os mesmos arquivos. A otimização de entrega também envia atualizações de aplicativos de do PC do próprio usuário para outras pessoas de acordo com as configurações. Compartilhando estes dados entre PCs ajuda a reduzir a banda de internet necessária para manter mais de um dispositivo atualizado ou até mesmo aumentar as chances de um download ser bem-sucedido em caso de uma conexão com a internet limitada ou instável.</p>
+
+							<p class="paragraphText"><span class="spaceTab"></span>Quando o Windows descarrega uma atualização ou aplicativo usando a otimização de entrega, o sistema operacional procura por outro PCs na rede local do usuário (ou internet, dependendo das configurações) que já descarregaram tal atualização ou aplicativo. Vale ressaltar que o Windows não baixa o arquivo inteiro de apenas um lugar. Ao invés disso, o arquivo é “quebrado” em partes menores de modo que o Windows possa pegar partes dos PCs que o possuem e o que faltar da própria Microsoft. O Windows procura utilizar o caminho mais rápido e confiável para descarregar cada parte. A otimização de entrega cria um cache local que armazena arquivos que foram baixados por um período curto de tempo.</p>
+
+							<h4>-Como é garantida segurança na Otimização de Entrega?</h4>
+							<p class="paragraphText"><span class="spaceTab"></span>Deve ficar claro que a otimização de entrega não pode ser usada para baixar ou enviar conteúdo pessoal visto que esta funcionalidade não possui acesso aos arquivos ou pastas pessoais e não modifica nenhum arquivo no PC do usuário. Para garantir que o usuário está recebendo atualizações autênticas, a otimização de entrega pega informações de forma segura da Microsoft para verificar a autenticidade de cada parte do arquivo que foi transferido através de outros PCs.</p>
+
+							<a href="#" class="image text"><img src="images/delivery optimization.png" alt=""></a>
+						</section>
+								
+				</div>
+			</section>	
+			
+			
+			
+		<!-- Footer -->
+			<footer id="footer">
+
+				<span class="copyright">
+						&copy; Copyright. Todos os direitos reservados. Template por <a href="http://www.html5webtemplates.co.uk">Responsive Web Templates</a>
+				</span>
+			</footer>
+
+	</body>
+</html>
