@@ -84,8 +84,30 @@
 								<li>um sistema com tempo de vida independente (Tim Kindberg, HP Labs).</li>
 							</ul>
 							<p class="paragraphText"><span class="spaceTab"></span>Apesar de já ser possível perceber algumas das vantagens que um sistema como este pode
-							nos proporcionar, também começam a ficar claros os desafios que acabam surgindo. Tendo em mãos definições um pouco mais formais, podemos começar a entender alguns problemas
-							enfrentados no mundo atual decorrentes da popularização da arquitetura Par-a-Par.</p>
+							nos proporcionar, é necessário formalizá-las. Para tal, vamos observar cada característica de um sistema P2P e tentar identificar suas implicações.</p>
+
+							
+							<h3>Características e seus Benefícios</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>O artigo de de Dejan S. Milojicic et al. entitulado "<i>Peer-to-Peer Computing</i>", publicado em 2002, cita diversas características
+							referentes às redes Par-a-Par. Ao analisarmos cada uma delas, podemos extrair seus benefícios:
+							<ul class="listItems">
+								<li><u>descentralização:</u> uma das ideias mais poderosas desta característica é o ênfase na posse e no controle dos recursos pelo usuário. Afinal, em um modelo descentralizado, cada nó
+								é um participante igualitário. Uma arquitetura assim é bastante tolerante a falhas, já que não existe um ponto central para falhar. Na prática, no entanto, isto torna a implementação de 
+								sistemas P2P mais desafiante, sendo um dos motivos pelo quais muitas aplicações optam por um modelo	híbrido;</li>
+								<li><u>escalabilidade:</u> é um benefício imediato decorrente da descentralização. Serviços P2P como o Napster já mantiveram até 6 milhões de usuários simultâneos em sua utilização de pico;</li>
+								<li><u>anonimato:</u> apesar de controversos, objetivos da concepção das redes P2P incluem permitir o uso de sistemas sem preocupações legais e sem possibilidade de censura. Existem basicamente
+								três tipos: anonimato do remetente, do destinatário e mútuo. Por exemplo, técnicas de <i>multicast</i> podem garantir anonimato dos destinatários, como descrito no artigo
+								"<i>Networks Without User Observability</i>", de Pfitzmann e Waidner, publicado em 1987;</li>
+								<li><u>custo de propriedade e performance:</u> um dos princípios da computação P2P é o da propriedade compartilhada. Assim, é possível obter enorme performace por um custo comparativamente menor.
+								Por exemplo, em 2002, o sistema SETI@home (<i>Search for Extraterrestrial Intelligence</i>), que utilizava os computadores de seus usuários para computar dados de telescópios, era mais veloz 
+								que o supercomputador mais rápido disponível no mundo, com um custo expressivamente menor (cerca de 1%);</li>
+								<li><u>conectividade ad-hoc:</u> em uma arquitetura P2P, a configuração da rede em um dado momento é difícil de ser prevista. Por exemplo, uma computação distribuída não irá ser executada em todos
+								os participantes a todo tempo. Alguns nós estarão disponíveis em alguns momentos, enquanto outros simplesmente estarão completamente inacessíveis. Aplicações P2P precisam estar cientes desta
+								natureza ad-hoc e lidar com sistemas constantemente entrando e saindo da lista de nós disponíveis.</u></li>
+							</ul>
+							<p class="paragraphText"><span class="spaceTab"></span>Apesar da lista de características e benefícios de uma rede Par-a-Par ser bastante extensa, logo começam a ficar claros os desafios que 
+							acabam surgindo junto com sua implementação. Tendo em mãos definições um pouco mais formais, podemos começar a entender alguns problemas enfrentados no mundo atual decorrentes da popularização 
+							da arquitetura P2P.</p>
 							
 							<h3>Desafios distribuídos, lutas fragmentadas</h3>
 							<p class="paragraphText"><span class="spaceTab"></span>Um sistema de compartilhamento de arquivos descentralizado abre brechas para alguns tipos de ataques. Além dos riscos
@@ -96,7 +118,6 @@
 							<p class="paragraphText"><span class="spaceTab"></span>Além disso, como cada nó da aplicação também possui funções de servidor, a vulnerabilidade a ataques remotos aumenta.
 							Problemas de segurança nas aplicações Par-a-Par podem levar a investidas maliciosas, incluindo ataques de roteamento (e.g. encaminhar pedidos incorretamente) e de negação de serviço.
 							Dentre as diversas soluções buscadas para este último tipo de ataque, um artigo de 2011 sugere abordagens relacionadas a esconder a posição dos arquivos, diminuindo seu número de cópias.</p>
-							
 						</section>
 								
 				</div>
