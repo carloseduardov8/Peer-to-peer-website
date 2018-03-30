@@ -68,6 +68,7 @@
 							<p class="paragraphText"><span class="spaceTab"></span>Algumas características observadas podem nos dar informações sobre o funcionamento da rede. Tendo um grafo G = (V, A), em que V é o conjunto
 							de vértices e A é o conjunto de arestas, estamos particularmente interessados nas seguintes métricas:</p>
 							<ul class="listItems">
+							
 								<li><u>grau invidivual e grau médio:</u> um vértice v &isin; V, em um grafo direcionado, possui duas métricas interessantes. A primeira delas é deg<sup>−</sup>(v), que representa o número de arestas chegando em v,
 								enquanto a segunda, deg<sup>+</sup>(v), simboliza o número de arestas saindo de v. Por exemplo, na ilustração acima, deg<sup>−</sup>(3) = 2 e deg<sup>+</sup>(3) = 1. Intuitivamente, a soma de todos
 								os deg<sup>−</sup>(v) precisa ser igual à soma de todos os deg<sup>+</sup>(v), já que toda aresta precisa ter um ponto de partida e um ponto de chegada. Assim, verificamos a seguinte relação:
@@ -76,9 +77,16 @@
 								Assim, se definirmos deg(v) = deg<sup>−</sup>(v) + deg<sup>+</sup>(v), seremos capazes de construir um gráfico mostrando a distribuição do número de conexões de cada nó. Isto nos permitirá levantar
 								estatístias como o <b>grau médio</b>, ou seja, o número médio de conexões, recebidas e requisitadas, que cada nó da rede possuía.
 								</li><br>
-								<li><u>torneio máximo:</u> imagine um grafo completo, ou seja, em que cada par de vértices possui uma aresta entre eles. No caso dos grafos orientados, tal configuração é chamada de <b>torneio</b>, e um
+								
+								<li><u>subtorneio máximo:</u> imagine um grafo completo, ou seja, em que cada par de vértices possui uma aresta entre eles. No caso dos grafos orientados, tal configuração é chamada de <b>torneio</b>, e um
 								exemplo ilustrativo com |V| = 4  pode ser visto abaixo:
 								<div class="4u 6u(3) centerImage" style="width: 15%;"><span class=" image fit"><img src="images/tournament.png" alt="" /></span></div>
+								<p class="paragraphText"><span class="spaceTab"></span>Em um dado grafo G = (V, A) do Gnutella com milhares de nós, como os que iremos analisar, é intuitivamente inviável que cada nó mantenha |V|&ndash;1 conexões e, por consequência, 
+								jamais observaremos um torneio. No entanto, se olharmos pra subgrafos de G, iremos encontrar alguns. Por exemplo, quaisquer dois vértices com uma aresta entre si formarão um subtorneio de tamanho 2. Da mesma
+								foma, um triângulo qualquer no grafo corresponde a um subtorneio de tamanho 3. Portanto, surge a pergunta: qual será o tamanho do maior subtorneio que poderemos encontrar num grafo desse tipo?</p>
+								<span class="spaceTab"></span>Nota-se que este problema é equivalente a encontrar um clique máximo num grafo não-direcionado e, portanto, pertence a <b>NP-difícil</b>. Porém, iremos utilizar técnicas de otimização
+								para construir um algoritmo <i>branch-and-bound</i> que utilizará limites primais e duais para ser guiado mais rapidamente à resposta correta, podando sua árvore de busca e, assim, encontrando a resposta em um tempo viável.
+							
 							</ul>
 							
 						</section>
