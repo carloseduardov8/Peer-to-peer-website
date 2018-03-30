@@ -58,7 +58,7 @@
 							tipo de abstração é muito poderosa e nos permite extrair diversas características importantes para analisarmos e compreendermos como as redes se organizam.</p>
 							<p class="paragraphText"><span class="spaceTab"></span>Em um ambiente de Redes Par-a-Par, em que existe uma conectividade ad-hoc muito presente, capturar uma configuração 
 							das conexões em um dado momento nos permite transformar todo o sistema em um grafo, convertendo cada <i>peer</i> (par) em um vértice e cada conexão em uma aresta direcionada. Assim, uma aresta
-							partindo do vértice 1 para o vértice 2 significa uma requisição realizada pelo par 1 para o par 2. Os dados utilizados para esta análise são todos provenientes do serviço Gnutella (cujo funcionamento
+							partindo do vértice 1 para o vértice 2 significa uma requisição realizada pelo par 1 para o par 2. Os dados utilizados para esta análise são todos provenientes do serviço <b>Gnutella</b> (cujo funcionamento
 							pode ser visto em detalhes na página <a href="aplicacoes.html" style="color: darkblue;">Aplicações</a> deste website) coletados em Agosto de 2002. A obtenção dos dados foi realizada pelo <i>Stanford Network Analysis Project
 							(STAMP)</i>, da Universidade de <i>Stanford</i>, que os disponibiliza em arquivo de texto.</p>
 							<p class="paragraphText"><span class="spaceTab"></span>Abaixo, podemos ver um exemplo meramente ilustrativo mostrando como um grafo desse tipo se parece:</p>
@@ -92,7 +92,8 @@
 								foma, um triângulo qualquer no grafo corresponde a um subtorneio de tamanho 3. Portanto, surge a pergunta: qual será o tamanho do maior subtorneio que poderemos encontrar num grafo desse tipo?</p>
 								<span class="spaceTab"></span>Nota-se que este problema é equivalente a encontrar um clique máximo num grafo não-direcionado e, portanto, pertence a <b>NP-difícil</b>. Porém, iremos utilizar técnicas de otimização
 								para construir um algoritmo <i>branch-and-bound</i> que utilizará limites primais e duais para ser guiado mais rapidamente à resposta correta, podando sua árvore de busca e, assim, encontrando a resposta em um tempo viável.
-								Encorajamos pesquisas futuras para identificar se pares participantes do mesmo torneio possuem interesses e tendências de uso similares.
+								O artigo do qual este algoritmo foi retirado chama-se <i>"An improved branch and bound algorithm for the maximum clique problem"</i> e encontra-se listado na bibliografia. Encorajamos pesquisas futuras para identificar se pares 
+								participantes do mesmo torneio possuem interesses e tendências de uso similares.
 								</li>
 							
 							</ul>
