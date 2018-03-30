@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Redes Par-a-Par (Peer to Peer Networks)</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrollgress.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.slidertron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+		<link rel="stylesheet" href="css/no-footbar.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="index.html">Redes Par-a-Par (Peer to Peer Networks) &nbsp&nbsp<span>GTA - UFRJ</span></a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Início</a></li>
+						<li><a href="introducao.html">Introdução</a></li>
+						<li><a href="aplicacoes.html">Aplicações</a></li>
+						<li><a href="arquitetura.html">Arquitetura</a></li>
+						<li><a href="algoritmos.html">Algoritmos</a></li>
+						<li>
+							<a href="" class="icon fa-angle-down">Experimentos</a>
+							<ul>
+								<li><a href="codigo.html">Código-fonte</a></li>
+								<li><a href="experimentos.html">Resultados</a></li>
+							</ul>
+						</li>
+						<li><a href="questoes.html">Questões</a></li>
+						<li><a href="bibliografia.html">Bibliografia</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper style1">
+				<header class="major">
+					<h2>Arquitetura</h2>
+					<p>Princípios, modelos e algoritmos de funcionamento</p>
+				</header>
+				<div class="container">
+
+					<!-- Content -->
+						<section id="content">
+							<a href="#" class="image fit"><img src="images/p2p_model.png" alt="" class="headerImage"/></a>
+							<h3>P2P</h3>
+							<p class="paragraphText"><span class="spaceTab"></span> Arquitetura P2P (<i>peer-to-peer</i>) é uma arquitetura de redes em que cada par, ou nó, coopera entre si para prover serviços um ao outro, sem a necessidade a priori de um servidor central. Todos os pares são clientes e servidores.</p>
+							<h3>Redes Sobrepostas</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>É uma rede de computadores construída sobre outra rede. Sistemas p2p utilizam redes sobrepostas, que são criadas na camada de aplicação, sobre as redes físicas. Os nós em uma rede de sobreposição são conectados por links virtuais/lógicos, por meio de muitos links físicos na rede subjacente. Redes sobrepostas são usadas para encontrar e reconhecer os pares para tornar a rede p2p independente da topologia da rede física. Quando existe uma conexão entre dois pares, diz-se que existe uma aresta entre eles, o gráfico contendo todos os pares ativos e as arestas entre eles compõem a rede de sobreposição. </p>
+							<p class="paragraphText"><span class="spaceTab"></span>Redes sobrepostas são divididas em:</p>
+							<ul class="listItems">
+								<li>Redes Não Estruturadas</li>
+								<li>Redes Estruturadas</li>
+							</ul>
+							<a href="#" class="image fit"><img src="images/Overlay_p2p.jpg" alt="" class="headerImage"/></a>
+
+							<br>
+							<br>
+
+							<h3>Redes não estruturadas</h3>
+
+							<p class="paragraphText"><span class="spaceTab"></span>As redes não-estruturadas <ins>não possuem uma estrutura definida</ins> na rede de sobreposição e não usam algoritmos específicos para organizar as conexões da rede. Cada nó estabelece conexões aleatoriamente entre outros nós.</p>
+							<a href="#" class="image text"><img src="images/P2P-Não-Estruturados_adaptado.jpg" alt=""></a>
+							<ul class="listItems">
+								<li>Vantagens</br>- Simplicidade: São fáceis de construir;<br/>- Permitem otimizações em diferentes regiões da sobreposição;<br/>- Altamente robustas devido as altas taxas de “rotatividade” dos pares na rede.</li>
+								<li>Desvantagens: Sistema de <ins>busca por inundação</ins><br/>- A requisição de dados causa muito tráfego de sinalização;</br>- Não garante a busca do conteúdo pesquisado.</li>
+							</ul>
+
+							<p class="paragraphText"><span class="spaceTab"></span><ins>Busca por inundação:</ins> Uma mensagem é enviada a todos os nós para encontrar maior quantidade possível de pares e que tem o arquivo solicitado. Conteúdos populares tem fácil disponibilidade entre pares, mas dados compartilhados por poucos pares são mais raros e difíceis para o sistema de busca ter êxito. </p>
+							<p class="paragraphText"><span class="spaceTab"></span>Existem três tipos de redes não estruturadas:</p>
+							<ul class="listItems">
+								<li>P2P pura</li>
+								<li>P2P híbrida</li>
+								<li>P2P centralizada</li>
+							</ul>
+							<p class="paragraphText"><span class="spaceTab"></span>Exemplos de protocolos P2P não estruturados: <ins>Gnutella</ins>, <ins>Gossip</ins>, <ins>Kazaa</ins>.
+</p>
+
+							<h3>Redes Estruturadas</h3>
+							<!--
+							<h4>-Como ...</h4>
+							<p class="paragraphText"><span class="spaceTab"></span></p>
+							<p class="paragraphText"><span class="spaceTab"></span></p>
+
+							<h4>-Como ...</h4>
+							<p class="paragraphText"><span class="spaceTab"></span></p>
+
+							<a href="#" class="image text"><img src="images/delivery optimization.png" alt=""></a>
+							-->
+						</section>
+
+				</div>
+			</section>
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+
+				<span class="copyright">
+					&copy; Copyright. Todos os direitos reservados. Template por <a href="http://www.html5webtemplates.co.uk">Responsive Web Templates</a>
+					<br>Autores deste website: Carlos Eduardo Marciano, Felipe Assis de Souza, Raul Baptista de Souza.
+					<br>Sob orientação do professor Luís Henrique Kosmalski Costa, da disciplina Redes de Computadores I (EEL878).
+				</span>
+			</footer>
+
+	</body>
+</html>
