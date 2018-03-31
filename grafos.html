@@ -69,31 +69,31 @@
 							de vértices e A é o conjunto de arestas, estamos particularmente interessados nas seguintes métricas:</p>
 							<ul class="listItems">
 							
-								<li><u>distribuição de graus e grau médio:</u> um vértice v &isin; V, em um grafo direcionado, possui duas métricas interessantes. A primeira delas é deg<sup>−</sup>(v), que representa o número de arestas chegando em v,
+								<li><p class="paragraphText"><u>distribuição de graus e grau médio:</u> um vértice v &isin; V, em um grafo direcionado, possui duas métricas interessantes. A primeira delas é deg<sup>−</sup>(v), que representa o número de arestas chegando em v,
 								enquanto a segunda, deg<sup>+</sup>(v), simboliza o número de arestas saindo de v. Por exemplo, na ilustração acima, deg<sup>−</sup>(3) = 2 e deg<sup>+</sup>(3) = 1. Intuitivamente, a soma de todos
-								os deg<sup>−</sup>(v) precisa ser igual à soma de todos os deg<sup>+</sup>(v), já que toda aresta precisa ter um ponto de partida e um ponto de chegada. Assim, verificamos a seguinte relação:
+								os deg<sup>−</sup>(v) precisa ser igual à soma de todos os deg<sup>+</sup>(v), já que toda aresta precisa ter um ponto de partida e um ponto de chegada. Assim, verificamos a seguinte relação:</p>
 								<div class="4u 6u(3) centerImage size0-25"><span class=" image fit"><img src="images/formula-graus.png" alt="" /></span></div>
-								<span class="spaceTab"></span>A soma deg<sup>−</sup>(v) + deg<sup>+</sup>(v) para um dado v &isin; V corresponde ao número total de conexões que o par v possuía no momento em que a captura da rede Gnutella foi realizada.
+								<p class="paragraphText"><span class="spaceTab"></span>A soma deg<sup>−</sup>(v) + deg<sup>+</sup>(v) para um dado v &isin; V corresponde ao número total de conexões que o par v possuía no momento em que a captura da rede Gnutella foi realizada.
 								Assim, se definirmos deg(v) = deg<sup>−</sup>(v) + deg<sup>+</sup>(v), seremos capazes de construir um gráfico mostrando a distribuição do número de conexões de cada nó. Isto nos permitirá levantar
-								estatístias como o <b>grau médio</b>, ou seja, o número médio de conexões, recebidas e requisitadas, que cada nó da rede possuía.
+								estatístias como o <b>grau médio</b>, ou seja, o número médio de conexões, recebidas e requisitadas, que cada nó da rede possuía.</p>
 								</li><br>
 								
-								<li><u>diâmetro:</u> pense no menor caminho entre cada par de vértices. Por exemplo, na ilustração acima, o caminho mínimo entre os vértices 5 e 1 são as arestas [5&rarr;7, 7&rarr;4, 4&rarr;1].
+								<li><p class="paragraphText"><u>diâmetro:</u> pense no menor caminho entre cada par de vértices. Por exemplo, na ilustração acima, o caminho mínimo entre os vértices 5 e 1 são as arestas [5&rarr;7, 7&rarr;4, 4&rarr;1].
 								Assim, definimos o <b>diâmetro</b> do grafo como sendo o comprimento do caminho mais longo entre todos os menores caminhos. Isto pode servir de material para estudos futuros observarem o padrão de utilização
 								de cada par na extremidade do diâmetro (assim como em outros caminhos mínimos longos). Apesar de carecermos de fontes, acreditamos que pares muitos distantes possam ter padrões de utilização bastante diferentes
 								(e.g.: um par extremo interessado em baixar artigos científicos enquanto a outra extremidade possui interesse em conteúdo pornográfico). Dessa forma, encorajamos pesquisas futuras acerca do tema.
-								</li><br>
+								</p></li><br>
 								
-								<li><u>subtorneio máximo:</u> imagine um grafo completo, ou seja, em que cada par de vértices possui uma aresta entre eles. No caso dos grafos orientados, tal configuração é chamada de <b>torneio</b>, e um
-								exemplo ilustrativo com |V| = 4  pode ser visto abaixo:
+								<li><p class="paragraphText"><u>subtorneio máximo:</u> imagine um grafo completo, ou seja, em que cada par de vértices possui uma aresta entre eles. No caso dos grafos orientados, tal configuração é chamada de <b>torneio</b>, e um
+								exemplo ilustrativo com |V| = 4  pode ser visto abaixo:</p>
 								<div class="4u 6u(3) centerImage" style="width: 15%;"><span class=" image fit"><img src="images/tournament.png" alt="" /></span></div>
 								<p class="paragraphText"><span class="spaceTab"></span>Em um dado grafo G = (V, A) do Gnutella com milhares de nós, como os que iremos analisar, é intuitivamente inviável que cada nó mantenha |V|&ndash;1 conexões e, por consequência, 
 								jamais observaremos um torneio. No entanto, se olharmos pra subgrafos de G, iremos encontrar alguns. Por exemplo, quaisquer dois vértices com uma aresta entre si formarão um subtorneio de tamanho 2. Da mesma
 								foma, um triângulo qualquer no grafo corresponde a um subtorneio de tamanho 3. Portanto, surge a pergunta: qual será o tamanho do maior subtorneio que poderemos encontrar num grafo desse tipo?</p>
-								<span class="spaceTab"></span>Nota-se que este problema é equivalente a encontrar um clique máximo num grafo não-direcionado e, portanto, pertence a <b>NP-difícil</b>. Porém, iremos utilizar técnicas de otimização
+								<p class="paragraphText"><span class="spaceTab"></span>Nota-se que este problema é equivalente a encontrar um clique máximo num grafo não-direcionado e, portanto, pertence a <b>NP-difícil</b>. Porém, iremos utilizar técnicas de otimização
 								para construir um algoritmo <i>branch-and-bound</i> que utilizará limites primais e duais para ser guiado mais rapidamente à resposta correta, podando sua árvore de busca e, assim, encontrando a resposta em um tempo viável.
 								O artigo do qual este algoritmo foi retirado chama-se <i>"An improved branch and bound algorithm for the maximum clique problem"</i> e encontra-se listado na bibliografia. Encorajamos pesquisas futuras para identificar se pares 
-								participantes do mesmo torneio possuem interesses e tendências de uso similares.
+								participantes do mesmo torneio possuem interesses e tendências de uso similares.</p>
 								</li>
 							
 							</ul>
