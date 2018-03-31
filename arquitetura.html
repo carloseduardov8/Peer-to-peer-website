@@ -62,6 +62,36 @@
 							<a href="#" class="image fit"><img src="images/p2p_model.png" alt="" class="headerImage"/></a>
 							<h3>P2P</h3>
 							<p class="paragraphText"><span class="spaceTab"></span> Arquitetura P2P (<i>peer-to-peer</i>) é uma arquitetura de redes em que cada par, ou nó, coopera entre si para prover serviços um ao outro, sem a necessidade a priori de um servidor central. Todos os pares são clientes e servidores.</p>
+
+							<h3>Diferenças entre arquitetura Par-a-Par e Cliente-Servidor</h3>
+							<table style="width:100%">
+							  <tr>
+							    <th>Par-a-Par</th>
+							    <th>Cliente-Servdor</th> 
+							  </tr>
+							  <tr>
+							    <td>A informação está distribuída</td>
+							    <td>A informação fica concentrada</td> 
+							  </tr>
+							  <tr>
+							    <td>...</td>
+							    <td>...</td> 
+							  </tr>
+							  <tr>
+							    <td>...</td>
+							    <td>...</td> 
+							  </tr>
+							  <tr>
+							    <td>...</td>
+							    <td>...</td> 
+							  </tr>
+							  <tr>
+							    <td>...</td>
+							    <td>...</td> 
+							  </tr>
+							</table>
+							<a href="#" class="image text"><img src="images/scalability.png" alt=""></a>
+
 							<h3>Redes Sobrepostas</h3>
 							<p class="paragraphText"><span class="spaceTab"></span>É uma rede de computadores construída sobre outra rede. Sistemas p2p utilizam redes sobrepostas, que são criadas na camada de aplicação, sobre as redes físicas. Os nós em uma rede de sobreposição são conectados por links virtuais/lógicos, por meio de muitos links físicos na rede subjacente. Redes sobrepostas são usadas para encontrar e reconhecer os pares para tornar a rede p2p independente da topologia da rede física. Quando existe uma conexão entre dois pares, diz-se que existe uma aresta entre eles, o gráfico contendo todos os pares ativos e as arestas entre eles compõem a rede de sobreposição. </p>
 							<p class="paragraphText"><span class="spaceTab"></span>Redes sobrepostas são divididas em:</p>
@@ -69,7 +99,7 @@
 								<li>Redes Não Estruturadas</li>
 								<li>Redes Estruturadas</li>
 							</ul>
-							<a href="#" class="image fit"><img src="images/Overlay_p2p.jpg" alt="" class="headerImage"/></a>
+							<a href="#" class="image text"><img src="images/Overlay_p2p.jpg" alt=""></a>
 
 							<br>
 							<br>
@@ -82,8 +112,6 @@
 								<li>Vantagens</br>- Simplicidade: São fáceis de construir;<br/>- Permitem otimizações em diferentes regiões da sobreposição;<br/>- Altamente robustas devido as altas taxas de “rotatividade” dos pares na rede.</li>
 								<li>Desvantagens: Sistema de <ins>busca por inundação</ins><br/>- A requisição de dados causa muito tráfego de sinalização;</br>- Não garante a busca do conteúdo pesquisado.</li>
 							</ul>
-
-							<p class="paragraphText"><span class="spaceTab"></span><ins>Busca por inundação:</ins> Uma mensagem é enviada a todos os nós para encontrar maior quantidade possível de pares e que tem o arquivo solicitado. Conteúdos populares tem fácil disponibilidade entre pares, mas dados compartilhados por poucos pares são mais raros e difíceis para o sistema de busca ter êxito. </p>
 							<p class="paragraphText"><span class="spaceTab"></span>Existem três tipos de redes não estruturadas:</p>
 							<ul class="listItems">
 								<li>P2P pura</li>
@@ -94,6 +122,10 @@
 </p>
 
 							<h3>Redes Estruturadas</h3>
+
+							<br>
+							<br>
+							<br>
 							<!--
 							<h4>-Como ...</h4>
 							<p class="paragraphText"><span class="spaceTab"></span></p>
@@ -104,6 +136,30 @@
 
 							<a href="#" class="image text"><img src="images/delivery optimization.png" alt=""></a>
 							-->
+
+							<h3>Distributed Hash Table (DHT)</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>Esta classe de sistema distribuído, diferentemente das demais, oferece uma forma de roteamento mais estruturada de modo a obter tanto descentralização quanto eficiência. Uma DHT é particularmente útil quando deseja-se criar um banco de dados distribuído de modo a alcançar maior escalabilidade.</p> 
+							<p class="paragraphText"><span class="spaceTab"></span>Isso é feito distribuindo-se pares de chaves e valores <i>(key, value)</i> entre os nós da rede de maneira que cada nó tenha posse de apenas um pequeno subconjunto da dupla (chave, valor). Qualquer nó na rede pode realizar uma consulta no banco de dados com uma chave. O banco de dados localizará os nós que possuem o par (chave, valor) correspondente e retorná a informação para o nós que iniciou a consulta.</p>
+							<p class="paragraphText"><span class="spaceTab">...</span></p>
+							<li><b>Circular Distributed Hash Table</b></li>
+							<p class="paragraphText"><span class="spaceTab"></span>...</p>
+
+							<br>
+							<br>
+
+							<h2>Algoritmos</h2>
+
+							<h3>Diretório Centralizado</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>...</p>
+
+							<h3>Busca por Inundação</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>Uma mensagem é enviada a todos os nós para encontrar maior quantidade possível de pares e que tem o arquivo solicitado. Conteúdos populares tem fácil disponibilidade entre pares, mas dados compartilhados por poucos pares são mais raros e difíceis para o sistema de busca ter êxito.</p>
+
+							<h3>Roteamento de Documento</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>...</p>
+
+							<h3>Tit-for-Tat</h3>
+							<p class="paragraphText"><span class="spaceTab">...</span></p>
 						</section>
 
 				</div>
