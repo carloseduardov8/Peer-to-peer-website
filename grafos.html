@@ -77,6 +77,14 @@
 								Assim, se definirmos deg(v) = deg<sup>−</sup>(v) + deg<sup>+</sup>(v) e realizarmos uma estatística em todos os nós, poderemos ter uma noção de <b>grau médio</b>, correspondendo ao número médio de conexões, recebidas e requisitadas, que cada nó da rede possuía.</p>
 								</li><br>
 								
+								<li><p class="paragraphText"><u>coeficiente de agrupamento (CA) médio:</u> cada vértice v &isin; V possui seu próprio <b>coeficiente de agrupamento local</b> C<sub>v</sub> , que quantifica o quão próximo seus vizinhos estão de formarem um
+								grafo completo (ou seja, com uma aresta entre todo par de vizinhos). Dado o subgrafo formado por todos os vizinhos de v, calculamos C<sub>v</sub> através da razão entre o número de arestas existentes sobre o número
+								total de arestas que poderiam existir. O exemplo abaixo ilustra este procedimento para o vértice em azul:</p>
+								<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/coeficiente-de-agrupamento.png" alt="" /></span></div>
+								<p class="paragraphText"><span class="spaceTab"></span>Assim, tendo todos os coeficientes de agrupamento local calculados para cada vértice, podemos falar em um <b>coeficiente de agrupamento médio</b> característico do grafo
+								inteiro, que nada mais é do que a soma de todos os coeficientes de agrupamento local divido pelo número total de vértices.
+								</p></li><br>
+								
 								<li><p class="paragraphText"><u>diâmetro:</u> pense no menor caminho entre cada par de vértices. Por exemplo, na ilustração acima, o caminho mínimo entre os vértices 5 e 1 são as arestas [5&rarr;7, 7&rarr;4, 4&rarr;1].
 								Assim, definimos o <b>diâmetro</b> do grafo como sendo o comprimento do caminho mais longo entre todos os menores caminhos. Isto pode servir de material para estudos futuros observarem o padrão de utilização
 								de cada par na extremidade do diâmetro (assim como em outros caminhos mínimos longos). Apesar de carecermos de fontes, acreditamos que pares muitos distantes possam ter padrões de utilização bastante diferentes
@@ -98,7 +106,8 @@
 							</ul>
 							
 							<h3>Resultados Obtidos</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>Para diversificarmos nossos resultados, utilizamos diferentes capturas de configuração da rede Gnutella durante o mês de Agosto de 2002. No entanto, não foi possível determinar se os
+							<p class="paragraphText"><span class="spaceTab"></span>Para diversificarmos nossos resultados, utilizamos diferentes capturas de configuração da rede Gnutella durante o mês de Agosto de 2002. Algumas informações já estavam presentes
+							no repositório de dados do qual os grafos foram retirados, enquanto outras (como a distribuição dos graus e o subtorneio máximo) precisaram ser calculadas para este trabalho. No entanto, não foi possível determinar se os
 							grafos analisados representam a totalidade da rede ou apenas uma parcela. Abaixo, verificamos suas características:</p>
 							
 							<div class="table-wrapper">
@@ -106,9 +115,9 @@
 									<thead>
 										<tr>
 											<th>Data da captura</th>
-											<th>Total de nós (vértices)</th>
+											<th>Total de nós</th>
 											<th>Total de arestas</th>
-											<th>Grau médio</th>
+											<th>Grau total médio</th>
 											<th>CA médio</th>
 											<th>Diâmetro</th>
 											<th>Tamanho do Subtorneio Máximo</th>
