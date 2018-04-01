@@ -142,24 +142,31 @@
 							<p class="paragraphText"><span class="spaceTab"></span>Isso é feito distribuindo-se pares de chaves e valores <i>(key, value)</i> entre os nós da rede de maneira que cada nó tenha posse de apenas um pequeno subconjunto da dupla (chave, valor). Qualquer nó na rede pode realizar uma consulta no banco de dados com uma chave. O banco de dados localizará os nós que possuem o par (chave, valor) correspondente e retorná a informação para o nós que iniciou a consulta.</p>
 							<p class="paragraphText"><span class="spaceTab">...</span></p>
 							<li><b>Circular Distributed Hash Table</b></li>
-							<p class="paragraphText"><span class="spaceTab"></span>...</p>
+							<p class="paragraphText"><span class="spaceTab"></span>To be continued...</p>
 
 							<br>
 							<br>
 
-							<h2>Algoritmos</h2>
+							<h2>Algoritmos e Modelos</h2>
 
 							<h3>Diretório Centralizado</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>...</p>
-
+							<p class="paragraphText"><span class="spaceTab"></span>Um modelo em que os pares se conectam a um diretório central onde publicam informação sobre o conteúdo que oferecem para compartilhar e que se tornou popular com o Napster (serviço de música online P2P, encerrado em 2002). Quando um nó realiza um pedido, o diretório central responde associando o pedido ao melhor nó no diretório que o corresponde. Para definir qual o melhor nó é usada uma métrica que pode levar em conta o custo, a velocidade ou a disponibilidade. Por requerer o servidor do diretório para fins de gerenciamento (hospedar informação dos participantes), esse modelo pode ser classificado como em uma rede híbrida. Sendo assim, é evidente um problema de escalabilidade pois a medida que o número de usuários aumenta são necessários servidores maiores.</p>
+							<a href="#" class="image text"><img src="images/centraldirectory.png" alt=""></a>
+							<br>
+							<br>
 							<h3>Busca por Inundação</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>Uma mensagem é enviada a todos os nós para encontrar maior quantidade possível de pares e que tem o arquivo solicitado. Conteúdos populares tem fácil disponibilidade entre pares, mas dados compartilhados por poucos pares são mais raros e difíceis para o sistema de busca ter êxito.</p>
-
+							<p class="paragraphText"><span class="spaceTab"></span>Diferentemente do modelo do Diretório Centralizado, esse é um modelo que pode ser considerado P2P puro. Isso significa que não há um sistema central de gerencialemtno que anuncia o compartilhamento de recursos. A busca por determinado arquivo é feita enviando um mensagem a todos os nós adjacentes. Esses nós adjacentes também enviam uma mensagem aos demais nós conectados a eles e assim por diante até obterem uma resposta positiva ou um número máximo de saltos (TTL). Embora não seja muito eficiente se o objetivo é alcançar todos os nós na rede ou obter conteúdo raros, este modelo mostra-se eficaz em comunidades menores. </p>
+							<a href="#" class="image text"><img src="images/floodrequest.png" alt=""></a>
+							<br>
+							<br>
 							<h3>Roteamento de Documento</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>...</p>
-
+							<p class="paragraphText"><span class="spaceTab"></span>Trata-se de uma abordagem mais recente, adotada por aplicações como FreeNet (uma plataforma par-a-par de comunicação anticensura). Este modelo funciona atribuindo um ID aleatório a cada par presente na rede e garantindo que cada par saiba o número de alguns outros pares. Um documento ou arquivo compartilhado na rede também tem um ID atribuído a si baseado em um código <i>Hash</i> do seu nome e conteúdo. O arquivo será roteado por cada par para aquele que possui ID com maior semelhança ao ID do arquivo. Este processo de roteamento é repetido até que o arquivo "chegue" ao par de ID mais próximo. É importante destacar que a cada operação de rotamento é reservada uma cópia local do arquivo. </p>
+							<p class="paragraphText"><span class="spaceTab"></span>O processo de busca é análogo ao de armazenar um arquivo recém compartilhado na rede. Isto é, o pedido é direcionado ao par com ID mais próximo do ID do arquivo desejado. Isto é repetido até que o arquivo seja encontrado e enviado ao nó que realizou o pedido. Um detalhe a ser observado é que uma cópia local do arquivo é mantida em cada par particpante do roteamento. No entanto, o fato de ser necessário saber o ID do documento antemão torna a busca mais complicada do que no modelo de inundação por exemplo.</p>
+							<a href="#" class="image text"><img src="images/documentrouting.png" alt=""></a>
+							<br>
+							<br>
 							<h3>Tit-for-Tat</h3>
-							<p class="paragraphText"><span class="spaceTab">...</span></p>
+							<p class="paragraphText"><span class="spaceTab"></span>Em protocolos como BitTorrent é usado um mecanismo de incentivo conhecido como "Tit-for-Tat". Quando um par seleciona a quem enviar pedaços do arquivo, é realizada uma medição da taxa em que recebe pacotes de outros nós. Com esta informação em mãos, esse par prioriza os nós que mais contribuem com o seu download. Se os pares estiverem satisfeitos com o compartilhamento, eles colocaram cada um no top de suas listas e continuarão trocando dados até que algum dos pares ache um parceiro melhor.</p>
 						</section>
 
 				</div>
