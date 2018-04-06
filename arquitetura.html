@@ -67,27 +67,27 @@
 							<table style="width:100%">
 							  <tr>
 							    <th>Par-a-Par</th>
-							    <th>Cliente-Servdor</th> 
+							    <th>Cliente-Servdor</th>
 							  </tr>
 							  <tr>
 							    <td>A informação está distribuída</td>
-							    <td>A informação fica concentrada</td> 
+							    <td>A informação fica concentrada</td>
 							  </tr>
 							  <tr>
 							    <td>...</td>
-							    <td>...</td> 
+							    <td>...</td>
 							  </tr>
 							  <tr>
 							    <td>...</td>
-							    <td>...</td> 
+							    <td>...</td>
 							  </tr>
 							  <tr>
 							    <td>...</td>
-							    <td>...</td> 
+							    <td>...</td>
 							  </tr>
 							  <tr>
 							    <td>...</td>
-							    <td>...</td> 
+							    <td>...</td>
 							  </tr>
 							</table>
 							<a href="#" class="image text"><img src="images/scalability.png" alt=""></a>
@@ -108,18 +108,40 @@
 
 							<p class="paragraphText"><span class="spaceTab"></span>As redes não-estruturadas <ins>não possuem uma estrutura definida</ins> na rede de sobreposição e não usam algoritmos específicos para organizar as conexões da rede. Cada nó estabelece conexões aleatoriamente entre outros nós.</p>
 							<a href="#" class="image text"><img src="images/P2P-Não-Estruturados_adaptado.jpg" alt=""></a>
-							<ul class="listItems">
-								<li>Vantagens</br>- Simplicidade: São fáceis de construir;<br/>- Permitem otimizações em diferentes regiões da sobreposição;<br/>- Altamente robustas devido as altas taxas de “rotatividade” dos pares na rede.</li>
-								<li>Desvantagens: Sistema de <ins>busca por inundação</ins><br/>- A requisição de dados causa muito tráfego de sinalização;</br>- Não garante a busca do conteúdo pesquisado.</li>
-							</ul>
+							<br/>
+							<table style="width:100%">
+							  <tr>
+							    <th>Vantagens</th>
+							    <th>Desvantagens (Sistema de <ins>busca por inundação</ins>)</th>
+							  </tr>
+							  <tr>
+							    <td>Simplicidade: São fáceis de construir</td>
+							    <td>A requisição de dados causa muito tráfego de sinalização</td>
+							  </tr>
+							  <tr>
+							    <td>Permitem otimizações em diferentes regiões da sobreposição</td>
+							    <td>Não garante a busca do conteúdo pesquisado</td>
+							  </tr>
+							  <tr>
+							    <td>Altamente robustas devido as altas taxas de “rotatividade” dos pares na rede</td>
+							    <td>	</td>
+							  </tr>
+							</table>
+
 							<p class="paragraphText"><span class="spaceTab"></span>Existem três tipos de redes não estruturadas:</p>
 							<ul class="listItems">
-								<li>P2P pura</li>
-								<li>P2P híbrida</li>
-								<li>P2P centralizada</li>
+								<li><ins>P2P pura:</ins> Uma arquitetura de rede p2p pura é completamente descentralizada, não há um elemento central (diferentemente do modelo cliente-servidor), apenas uma camada de roteamento, pois todos os nós possuem papel equivalente, como visto anteriormente, o sistema de busca é por inundação, que gera certas desvantagens.
+									No entanto, aplicações P2P “puras” são raras. A maioria das arquiteturas P2P é híbrida, utilizando alguns elementos centralizadores na execução de tarefas cujo desempenho é crítico.<br/>Exemplo:<ins>Gnutella</ins>,<ins>Freenet</ins>.
+								</li>
+								<li><ins>P2P híbrida:</ins> Nesse tipo de arquitetura existem alguns nós especiais, chamados de supernós. Supernós concedem o ingresso dos nós na rede, indexam os recursos compartilhados pelos nós e liberam a busca por estes recursos. Quando localizado um determinado recurso pode ser obtido a partir da interação direta entre os nós. Uma falha em um supernó pode ser tolerada elegendo dinamicamente outro supernó.<br/>
+									Exemplo: <ins>Kazza</ins> e <ins>Bittorrent</ins>.
+								</li>
+								<li><ins>P2P centralizada:</ins> São redes híbridas, mas também possuem servidores centrais que controlam as entradas e saídas de nós na rede. Os nós registram no servidor central os recursos que compartilharão na rede. As pesquisas por recursos disponíveis nos pares são executadas pelo servidor central, o servidor prove banda e processamento, enquanto o acesso aos recursos é efetuado diretamente entre os pares (transferência de dados é P2P).<br/>
+									Exemplo: <ins>eMule</ins>, <ins>Napster</ins>.
+								</li>
 							</ul>
 							<p class="paragraphText"><span class="spaceTab"></span>Exemplos de protocolos P2P não estruturados: <ins>Gnutella</ins>, <ins>Gossip</ins>, <ins>Kazaa</ins>.
-</p>
+							</p>
 
 							<h3>Redes Estruturadas</h3>
 
@@ -138,7 +160,7 @@
 							-->
 
 							<h3>Distributed Hash Table (DHT)</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>Esta classe de sistema distribuído, diferentemente das demais, oferece uma forma de roteamento mais estruturada de modo a obter tanto descentralização quanto eficiência. Uma DHT é particularmente útil quando deseja-se criar um banco de dados distribuído de modo a alcançar maior escalabilidade.</p> 
+							<p class="paragraphText"><span class="spaceTab"></span>Esta classe de sistema distribuído, diferentemente das demais, oferece uma forma de roteamento mais estruturada de modo a obter tanto descentralização quanto eficiência. Uma DHT é particularmente útil quando deseja-se criar um banco de dados distribuído de modo a alcançar maior escalabilidade.</p>
 							<p class="paragraphText"><span class="spaceTab"></span>Isso é feito distribuindo-se pares de chaves e valores <i>(key, value)</i> entre os nós da rede de maneira que cada nó tenha posse de apenas um pequeno subconjunto da dupla (chave, valor). Qualquer nó na rede pode realizar uma consulta no banco de dados com uma chave. O banco de dados localizará os nós que possuem o par (chave, valor) correspondente e retorná a informação para o nós que iniciou a consulta.</p>
 							<p class="paragraphText"><span class="spaceTab">...</span></p>
 							<li><b>Circular Distributed Hash Table</b></li>
