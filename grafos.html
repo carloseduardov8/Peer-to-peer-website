@@ -115,9 +115,9 @@
 									<thead>
 										<tr>
 											<th>Data da captura</th>
-											<th>Total de nós</th>
-											<th>Total de arestas</th>
-											<th>Grau total médio</th>
+											<th>Nós</th>
+											<th>Arestas</th>
+											<th>1&ordm e 30&ordm; maiores <i>indegrees</i></th>
 											<th>CA médio</th>
 											<th>Diâmetro</th>
 											<th>Tamanho do Subtorneio Máximo</th>
@@ -128,7 +128,7 @@
 											<td>08/08/2002</td>
 											<td>6 301</td>
 											<td>20 777</td>
-											<td>6,59</td>
+											<td>91 (nó 266) e 67 (nó 368)</td>
 											<td>0,0109</td>
 											<td>9</td>
 											<td>5 &nbsp(Nós 7, 145, 177, 367, 753)</td>
@@ -137,7 +137,7 @@
 											<td>09/08/2002</td>
 											<td>8 114</td>
 											<td>26 013</td>
-											<td>6,41</td>
+											<td>92 (nó 51) e 69 (nó 1309)</td>
 											<td>0,0095</td>
 											<td>10</td>
 											<td>5 &nbsp(Nós 350, 837, 1309, 1365, 4294)</td>
@@ -146,7 +146,7 @@
 											<td>24/08/2002</td>
 											<td>26 518</td>
 											<td>65 369</td>
-											<td>4,93</td>
+											<td>355 (nó 68) e 18 (nó 578)</td>
 											<td>0,0055</td>
 											<td>10</td>
 											<td>4 &nbsp(Nós 16965, 18856, 19887, 21067)</td>
@@ -155,7 +155,7 @@
 											<td>30/08/2002</td>
 											<td>36 682</td>
 											<td>88 328</td>
-											<td>4,81</td>
+											<td>54 (nó 432) e 22 (nó 876)</td>
 											<td>0,0063</td>
 											<td>10</td>
 											<td>4 &nbsp(Nós 4619, 6550, 17034, 26238)</td>
@@ -164,7 +164,7 @@
 											<td>31/08/2002</td>
 											<td>62 586</td>
 											<td>147 892</td>
-											<td>4,73</td>
+											<td>68 (nó 164) e 28 (nó 8299)</td>
 											<td>0,0055</td>
 											<td>11</td>
 											<td>4 &nbsp(Nós 18169, 44996, 45753, 45754)</td>
@@ -192,6 +192,17 @@
 							não esteja bem distribuído ao longo dos pares, existe uma chance dele existir e mesmo assim não ser encontrado. Notamos também que o tamanho dos subtorneios máximos é bastante pequeno, mesmo quando analisamos mais de 60 000 nós.
 							Isto talvez possa indicar uma boa distribuição das conexões entre os pares, minimizando o número de conexões redundantes entre a mesma concentração de nós. Esta informação é coerente com o coeficiente de agrupamento (CA) do grafo,
 							que resultou em um número razoavelmente pequeno em todos os testes.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Por fim, notamos que uma tímida parcela dos nós da rede possuem graus de entrada excepcionalmente elevados. De fato, ao analisarmos os maiores graus de entrada (<i>indegrees</i>) do grafo, notamos
+							a existência de pares diferenciados, aos quais	um grande número de outros nós do grafo se conectam. Na rede obtida no dia 08/08/2002, por exemplo, há pelo menos 30 pares com grau de entrada maior ou igual a 67, sendo que o par com o maior
+							grau de entrada mantém surpreendentes 91 conexões. No grafo do dia 24/08/2002, um fenômeno mais incrível ainda pôde ser observado: o par 68 mantinha exatos 355 outros pares conectados a ele. Não há um erro de análise: ao pesquisarmos
+							pelo número "68" no arquivo de texto de entrada, verificamos que de fato existem 355 ocorrências descrevendo suas arestas. Encontramos, portanto, os famosos "superpares", que agem de forma similar a como um servidor se comporta em uma rede
+							cliente-servidor. Concluímos, ainda, que tais máquinas provavelmente possuem um <i>hardware</i> mais potente do que a média das folhas do grafo (que fazem o papel de clientes).</p>
+							
+							<br>
+							<h3>Conclusão</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>Esperamos que este trabalho, envolvendo Teoria dos Grafos e Redes de Computadores, tenha ajudado a ampliar o entendimento do leitor sobre como redes par-a-par funcionam na
+							prática. Um estudo de caso como este possibilita evidenciar os pontos fortes e fracos de um protocolo, sendo capaz de sugerir onde as melhorias devem ocorrer. Apesar do exemplo analisado ser antigo, datando de 2002, isto se deve à
+							pouca disponibilidade de dados encontrados. Caso novas coletas sejam realizadas em outros sistemas no futuro, esperamos que esta pesquisa possa servir de ponto de partida para inspirar novos resultados.</p>
 
 							
 						</section>
