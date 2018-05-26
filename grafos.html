@@ -58,7 +58,7 @@
 							tipo de abstração é muito poderosa e nos permite extrair diversas características importantes para analisarmos e compreendermos como as redes se organizam.</p>
 							<p class="paragraphText"><span class="spaceTab"></span>Em um ambiente de Redes Par-a-Par, em que existe uma conectividade ad-hoc muito presente, capturar uma configuração 
 							das conexões em um dado momento nos permite transformar todo o sistema em um grafo, convertendo cada <i>peer</i> (par) em um vértice e cada conexão em uma aresta direcionada. Assim, uma aresta
-							partindo do vértice 1 para o vértice 2 significa uma requisição realizada pelo par 1 para o par 2. Os dados utilizados para esta análise são todos provenientes do serviço <b>Gnutella</b> (cujo funcionamento
+							partindo do vértice 1 para o vértice 2 significa que o par 1 poderá encaminhar suas requisiçõse para o par 2. Os dados utilizados para esta análise são todos provenientes do serviço <b>Gnutella</b> (cujo funcionamento
 							pode ser visto em detalhes na página <a href="aplicacoes.html" style="color: darkblue;">Aplicações</a> deste website) coletados em Agosto de 2002. A obtenção dos dados foi realizada pelo <i>Stanford Network Analysis Project
 							(STAMP)</i>, da Universidade de <i>Stanford</i>, que os disponibiliza em arquivo de texto.</p>
 							<p class="paragraphText"><span class="spaceTab"></span>Abaixo, podemos ver um exemplo meramente ilustrativo mostrando como um grafo desse tipo se parece:</p>
@@ -86,9 +86,9 @@
 								</p></li><br>
 								
 								<li><p class="paragraphText"><u>diâmetro:</u> pense no menor caminho entre cada par de vértices. Por exemplo, na ilustração acima, o caminho mínimo entre os vértices 5 e 1 são as arestas [5&rarr;7, 7&rarr;4, 4&rarr;1].
-								Assim, definimos o <b>diâmetro</b> do grafo como sendo o comprimento do caminho mais longo entre todos os menores caminhos. Isto pode servir de material para estudos futuros observarem o padrão de utilização
-								de cada par na extremidade do diâmetro (assim como em outros caminhos mínimos longos). Apesar de carecermos de fontes, acreditamos que pares muitos distantes possam ter padrões de utilização bastante diferentes
-								(e.g.: um par extremo interessado em baixar artigos científicos enquanto a outra extremidade possui interesse em conteúdo pornográfico). Dessa forma, encorajamos pesquisas futuras acerca do tema.
+								Assim, definimos o <b>diâmetro</b> do grafo como sendo o comprimento do caminho mais longo entre todos os menores caminhos. A rede Gnutella, na época da coleta destes dados, possuía uma escalabilidade duvidosa (como
+								<i>Jordan Ritter</i>, em 2001, descreveu em <i>"Why Gnutella Can't Scale. No, Really."</i>) e seu protocolo possuía um limite moderado de saltos (7 saltos na versão 0.4). Assim, caso encontremos um diâmetro superior
+								a 7, poderemos validar nossa hipótese de que nem toda busca alcança a rede inteira.
 								</p></li><br>
 								
 								<li><p class="paragraphText"><u>subtorneio máximo:</u> imagine um grafo completo, ou seja, em que cada par de vértices possui uma aresta entre eles. No caso dos grafos orientados, tal configuração é chamada de <b>torneio</b>, e um
@@ -99,8 +99,8 @@
 								foma, um triângulo qualquer no grafo corresponde a um subtorneio de tamanho 3. Portanto, surge a pergunta: qual será o tamanho do maior subtorneio que poderemos encontrar num grafo desse tipo?</p>
 								<p class="paragraphText"><span class="spaceTab"></span>Nota-se que este problema é equivalente a encontrar um clique máximo num grafo não-direcionado e, portanto, pertence a <b>NP-difícil</b>. Porém, iremos utilizar técnicas de otimização
 								para construir um algoritmo <i>branch-and-bound</i> que utilizará limites primais e duais para ser guiado mais rapidamente à resposta correta, podando sua árvore de busca e, assim, encontrando a resposta em um tempo viável.
-								O artigo do qual este algoritmo foi retirado chama-se <i>"An improved branch and bound algorithm for the maximum clique problem"</i> e encontra-se listado na bibliografia. Encorajamos pesquisas futuras para identificar se pares 
-								participantes do mesmo torneio possuem interesses e tendências de uso similares.</p>
+								O artigo do qual este algoritmo foi retirado chama-se <i>"An improved branch and bound algorithm for the maximum clique problem"</i> e encontra-se listado na bibliografia. A existência de subtorneios grandes pode indicar conexões redundantes,
+								utilizando recursos computacionais de forma desnecessária.</p>
 								</li>
 							
 							</ul>
@@ -176,7 +176,7 @@
 							<br>
 							<p class="paragraphText"><span class="spaceTab"></span>Além disso, foi possível construir gráficos mostrando o grau de cada nó da rede. O primeiro gráfco representa a quantidade de nós que possuem um dado <b>grau
 							de entrada</b>. Por exemplo, um nó com grau de entrada igual a 5 possui cinco outras máquinas que tomaram a iniciativa de se conectar a ele. Por outro lado, o segundo gráfico mostra como se distribuem os <b>graus de saída</b>,
-							que correspondem às requisições realizadas por um dado nó. Por fim, incluímos um gráfico da soma dos graus de entrada e saída de cada nó, que apelidamos de <b>grau total</b>. Os dados estão disponíveis abaixo para
+							que correspondem às conexões pelas quais um dado nó encaminhará suas buscas. Por fim, incluímos um gráfico da soma dos graus de entrada e saída de cada nó, que apelidamos de <b>grau total</b>. Os dados estão disponíveis abaixo para
 							os cinco grafos analisados neste trabalho:</p>
 							<br>
 							<div class="4u 6u(3) centerImage size4"><span class=" image fit"><img src="images/graus-entrada.png" alt="" /></span></div>
@@ -185,9 +185,13 @@
 							<br>
 							
 							<h3>Análise dos Resultados</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>Uma das primeiras conclusões a qual chegamos é que não existem nós de grau total 0 nos dados, o que significa que todos os pares estavam enviando ou atendendo a requisições.
-							De acordo com o gráfico dos Graus de Saída, 60% a 75% dos nós possuíam grau de saída 0 e estavam apenas servindo conteúdo a outros pares. Por outro lado, nós que requisitavam um conteúdo se conectavam, em geral, a 9 ou 10 outros
-							pares para baixá-lo.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Uma das primeiras conclusões a qual chegamos é que não existem nós de grau total 0 nos dados, o que significa que todos os pares estavam mantendo alguma conexão.
+							De acordo com o gráfico dos Graus de Saída, 60% a 75% dos nós possuíam grau de saída 0 e estavam apenas servindo conteúdo a outros pares. Por outro lado, nós que requisitavam uma busca se conectavam, em geral, a 9 ou 10 outros
+							pares para realizá-las.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>O diâmetro calculado para as redes indica que, de fato, uma busca não alcança a rede inteira (devido ao limite máximo de 7 saltos na versão 0.4). Portanto, caso um conteúdo
+							não esteja bem distribuído ao longo dos pares, existe uma chance dele existir e mesmo assim não ser encontrado. Notamos também que o tamanho dos subtorneios máximos é bastante pequeno, mesmo quando analisamos mais de 60 000 nós.
+							Isto talvez possa indicar uma boa distribuição das conexões entre os pares, minimizando o número de conexões redundantes entre a mesma concentração de nós. Esta informação é coerente com o coeficiente de agrupamento (CA) do grafo,
+							que resultou em um número razoavelmente pequeno em todos os testes.</p>
 
 							
 						</section>
