@@ -75,10 +75,15 @@
 							<br>
 
 							<h3>Skype</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>O protocolo utilizado no Skype é proprietário e por tal motivo não é trivial determinar com precisão como o Skype funciona. No entanto, sabe-se que por padrão, o Skype envia pacotes de vídeo e áudio através do UDP. Por outro lado, pacotes de controle são enviados através do TCP. Skype é um exemplo de como técnicas P2P podem ser utilizadas em aplicações diferentes de compartilhamento de arquivos ou distribuição de conteúdo.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Temos que os dois serviços principais do Skype, telefonia pela internet e mensagens instantâneas, são intrínsecamente P2P tendo em vista que a aplicação se resume a pares de usuários se comunicando em tempo real. Não obstante, há ainda duas outras funções que utilizam técnicas P2P: NAT transversal e localização de usuários. Uma hierarquia é formada pelos pares que são classificados entre um par ordinário ou um super par. É mantido um índice que mapeia nome de usuários do Skype a seus respectivos atuais endereços IP que é distribuído através dos super pares aos demais da hierarquia.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>O protocolo utilizado no Skype é proprietário e, por isso, é difícil determinar seu funcionamento com precisão. No entanto, sabe-se que, por padrão, 
+							os pacotes de vídeo e áudio são enviados através de UDP, enquanto o controle das chamadas é feito por TCP. O Skype é um exemplo de como técnicas P2P podem ser utilizadas em aplicações com finalidades que fogem do compartilhamento 
+							de arquivos ou da distribuição de conteúdo com as quais já estamos familiarizados.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Os dois serviços principais do Skype (telefonia pela internet e mensagens instantâneas) são intrinsecamente P2P, tendo em vista que a aplicação se 
+							resume a pares de usuários se comunicando em tempo real. Suspeita-se que uma hierarquia seja formada pelos pares participantes, separando-os em "pares ordinários", referentes aos usuários comuns do serviço,
+							e "superpares", que mantêm mais conexões que o normal e agem de forma similar a servidores. Imagina-se que o mapeamento entre nomes de usuários do Skype e seus respectivos endereços IP atuais sejam distribuídos 
+							através dos "superpares" aos demais nós da hierarquia. A imagem abaixo tenta capturar esta ideia de forma ilustrativa, sem possuir um compromisso com o que de fato acontece.</p>
 							
-							<a href="#" class="image text"><img src="images/skype.png" alt=""></a>
+							<div class="4u 6u(3) centerImage size0-6"><span class=" image fit"><img src="images/skype.png" alt="" /></span></div>
 
 							<br>
 							<br>
