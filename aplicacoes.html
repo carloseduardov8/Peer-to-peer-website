@@ -65,11 +65,16 @@
 
 							<h3>Gnutella</h3>
 
-							<p class="paragraphText"><span class="spaceTab"></span>Introduzido em março de 2000 por dois funcionários da divisão Nullsoft da AOL, empresa que desenvolveu produtos como <i>Winamp</i> e <i>SHOUTcast</i>, Gnutella é uma tecnologia de compartilhamento de arquivos. Através de <i>softwares</i> que implementam o protocolo Gnutella como FrostWire ou WireShare, é possível facilmente procurar e baixar novos arquivos. Naturalmente, por ser descentralizado o protocolo oferece um nível de anonimidade para aos usuários, o que consequentemente introduz um grau de incerteza. Gnutella não deve ser confundido com sotware ou sistema pois trata-se na realidade de um protocolo de comunicação para compartilhamento de arquivos.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Quando um usuário deseja encontrar um arquivo, ele deve realizar uma consulta a uma página que lista os usuários Gnutella e seus respectivos endereços IP. Em posse desses endereços, é feita uma nova consulta a cada usuário conhecido perguntando se estes possuem o arquivo desejado. Tais usuários respondem com resultados se disponíveis e enchaminham a consulta a outros nós que conhecem. Ou seja, funciona de forma análoga a um algoritmo de inundação com a diferença que existe um <i>Time-To-Live</i> que define até quando a consulta será encaminhada.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>O número de consultas e potenciais respostas cresce exponencialmente a cada salto e, por tal motivo, a escalabilidade do protocolo fica prejudicada. Além disso, o protocolo se apoia na hipótese de que nós suficientes estarão conectados em dado estante do tempo de modo a consulta possa se propagar longe o suficiente para encontrar um resultado.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Introduzido em março de 2000 por dois funcionários da divisão Nullsoft da AOL, o Gnutella é uma tecnologia de busca e compartilhamento de arquivos. 
+							Através de <i>softwares</i> que implementam o protocolo Gnutella, como o FrostWire ou o WireShare, é possível facilmente procurar e baixar novos arquivos de forma descentralizada.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>As consultas pelos arquivos desejados são encaminhadas a cada nó conhecido que, por sua vez, enchaminha 
+							a consulta aos seus próprios conhecidos. Dessa forma, seu funcionamento se inspira em técnicas de inundação, com a peculiaridade de que existe um <i>Time-To-Live (TTL)</i> que define quantos saltos uma consulta pode percorrer antes
+							de ser descartada. Quando um arquivo é finalmente encontrado, dependendo da versão do protocolo, uma conexão direta é estabelecida entre os detentores do arquivo e o requisitante, iniciando a transferência.</i>
+							<p class="paragraphText"><span class="spaceTab"></span>Notamos que, se o TTL for menor que o diâmetro da rede, não será garantido que uma consulta alcance a rede inteira. Por fim, vale ressaltar que o número de consultas e potenciais respostas cresce exponencialmente a cada salto e, por tal motivo, a escalabilidade do protocolo 
+							fica prejudicada.</p>
 
-							<a href="#" class="image text"><img src="images/queryflood.png" alt=""></a>
+							<br>
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/queryflood.png" alt="" /></span></div>
 
 							<br>
 							<br>
@@ -107,7 +112,7 @@
 							Considerando que a computação é realizada de forma isolada em cada computador, os dispositivos precisam estar conectados ao servidor apenas para receber e posteriormente submeter as tarefas realizadas.</p>
 							
 							<br>
-							<a href="#" class="image text"><img src="images/seti@home.png" alt=""></a>
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/seti@home.png" alt="" /></span></div>
 
 							<br>
 							<br>
@@ -128,7 +133,7 @@
 							de cada parte do arquivo que foi transferido através de outros PCs.</p>
 
 							<br>
-							<a href="#" class="image text"><img src="images/delivery optimization.png" alt=""></a>
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/delivery_optimization.png" alt="" /></span></div>
 							<br>
 						</section>
 								
