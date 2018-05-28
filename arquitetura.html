@@ -53,37 +53,48 @@
 					<!-- Content -->
 						<section id="content">
 							<a href="#" class="image fit"><img src="images/architecture2.png" alt="" class="headerImage"/></a>
-							<h3>P2P</h3>
-							<p class="paragraphText"><span class="spaceTab"></span> Arquitetura P2P (<i>peer-to-peer</i>) é uma arquitetura de redes em que cada par, ou nó, coopera entre si para prover serviços um ao outro, sem a necessidade a priori de um servidor central. Todos os pares são clientes e servidores.</p>
-
+							<h3>Um novo paradigma arquitetural</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>Nesta seção, iremos comparar a arquitetura Par-a-Par com as características já conhecidas das dinâmicas cliente-servidor, além de explorar
+							os diferentes modelos de se conectar uma rede P2P.</p>
+							<br>
 							<h3>Diferenças entre arquitetura Par-a-Par e Cliente-Servidor</h3>
+							<br>
 							<table style="width:100%">
-							  <tr>
-							    <th>Par-a-Par</th>
-							    <th>Cliente-Servidor</th>
-							  </tr>
-							  <tr>
-							    <td>A informação está distribuída</td>
-							    <td>A informação fica concentrada</td>
-							  </tr>
-							  <tr>
-							    <td>Conecta-se através de uma rede</td>
-							    <td>Conecta-se através de um servidor</td>
-							  </tr>
-							  <tr>
-							    <td>A transferência de informações estará sempre ativa, pois possui vários nós na rede</td>
-							    <td>Quando um servidor está inoperante, as solicitações dos clientes não podem ser satisfeitas</td>
-							  </tr>
-							  <tr>
-							    <td>Não requer clientes e servidores fixos</td>
-							    <td>Requer um servidor e um cliente pelo menos</td>
-							  </tr>
-							  <tr>
-							    <td>Não há nós com funções especiais, ou seja, todos os nós são iguais ou podem ter as mesmas funções</td>
-							    <td>As funções são limitadas para o servidor e para cada cliente</td>
-							  </tr>
+								<thead>
+										<tr>
+											<th>Par-a-Par</th>
+											<th>Cliente-Servidor</th>
+										</tr>
+								</thead>
+								<tbody>
+									  <tr>
+										<td>A informação está distribuída</td>
+										<td>A informação fica concentrada</td>
+									  </tr>
+									  <tr>
+										<td>Um computador conecta-se com diversos pares</td>
+										<td>Um computador está limitado a se conectar com servidores</td>
+									  </tr>
+									  <tr>
+										<td>A transferência de informações estará ativa desde<br> que existam nós na rede</td>
+										<td>Quando um servidor está inoperante, as solicitações dos<br> clientes não podem ser satisfeitas</td>
+									  </tr>
+									  <tr>
+										<td>Pares podem entrar e sair da rede sem debilitá-la</td>
+										<td>A troca de um servidor requer uma atualização em seu DNS</td>
+									  </tr>
+									  <tr>
+										<td>Não há nós com funções especiais, ou seja, todos os nós são <br>iguais ou podem ter as mesmas funções</td>
+										<td>As funções são bem delimitadas tanto para o servidor quanto para cada cliente</td>
+									  </tr>
+								</tbody>
 							</table>
-							<a href="#" class="image text"><img src="images/scalability.png" alt=""></a>
+							
+							<br>
+							<p class="paragraphText"><span class="spaceTab"></span>Abaixo, apresentamos um gráfico ilustrando a complexidade temporal da distribuição de conteúdo em ambas as arquiteturas. Enquanto um servidor sem técnicas de replicação
+							possui uma distribuição serializada, as redes Par-a-Par possibilitam a obtenção de conteúdo e processamento a partir de diferentes nós da rede.</p>
+							<br>
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/scalability.png" alt="" /></span></div>
 
 							<h3>Redes Sobrepostas</h3>
 							<p class="paragraphText"><span class="spaceTab"></span>Sistemas p2p utilizam redes sobrepostas, que são criadas na camada de aplicação, sobre as redes físicas. Podemos entender redes sobrepostas como abstrações da rede física, é uma rede de computadores construída sobre outra rede. Os nós em uma rede de sobreposição são conectados por links virtuais/lógicos, por meio de muitos links físicos na rede subjacente. Redes sobrepostas são usadas para encontrar e reconhecer os pares e tornar a rede p2p independente da topologia da rede física. Por exemplo, quando existe uma conexão entre dois pares, diz-se que existe uma aresta entre eles, o gráfico contendo todos os pares ativos e as arestas entre eles compõem a rede de sobreposição, podemos então abstrair todos os dispositivos que conectam esses dois pares na rede física, e visualizar na rede sobreposta os pares conectados por um link virtual (aresta). </p>
