@@ -96,14 +96,17 @@
 							<br>
 							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/scalability.png" alt="" /></span></div>
 
-							<h3>Redes Sobrepostas</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>Sistemas p2p utilizam redes sobrepostas, que são criadas na camada de aplicação, sobre as redes físicas. Podemos entender redes sobrepostas como abstrações da rede física, é uma rede de computadores construída sobre outra rede. Os nós em uma rede de sobreposição são conectados por links virtuais/lógicos, por meio de muitos links físicos na rede subjacente. Redes sobrepostas são usadas para encontrar e reconhecer os pares e tornar a rede p2p independente da topologia da rede física. Por exemplo, quando existe uma conexão entre dois pares, diz-se que existe uma aresta entre eles, o gráfico contendo todos os pares ativos e as arestas entre eles compõem a rede de sobreposição, podemos então abstrair todos os dispositivos que conectam esses dois pares na rede física, e visualizar na rede sobreposta os pares conectados por um link virtual (aresta). </p>
-							<p class="paragraphText"><span class="spaceTab"></span>Redes sobrepostas são divididas em:</p>
-							<ul class="listItems">
-								<li>Redes Não Estruturadas</li>
-								<li>Redes Estruturadas</li>
-							</ul>
-							<a href="#" class="image text"><img src="images/Overlay_p2p.jpg" alt=""></a>
+							<h3>Arquitetura Par-a-Par e o Conceito de Rede Sobreposta</h3>
+							<p class="paragraphText"><span class="spaceTab"></span>Para continuarmos a estudar a arquitetura Par-a-Par, é necessário compreender o conceito de redes sobrepostas. Provenientes do inglês <i>"overlay networks"</i>, tais redes são
+							construídas em cima de outras já existentes, que suportam sua infraestrutura. Assim, um laço virtual entre dois nós de uma rede sobreposta pode corresponder, na verdade, a diversos outros laços da rede infraestrutural.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Este tipo de abstração é de grande relevância à arquitetura Par-a-Par por possibilitar que pares se encontrem e se reconheçam de forma independente da topologia física. Assim,
+							ao representarmos uma conexão entre dois pares de uma rede P2P utilizando apenas uma aresta, estamos capturando apenas as informações que de fato são relevantes para a topologia da rede Par-a-Par, sem ser necessário levar em conta as
+							rotas pelas quais os pacotes serão roteados. A imagem abaixo ilustra este conceito:</p>
+							
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/Overlay_p2p.jpg" alt="" /></span></div>
+							
+							<p class="paragraphText"><span class="spaceTab"></span>Assim, dedicamos duas das seções abaixo para tratar dos dois tipos de redes sobrepostas que são bastante encontrados na arquitetura Par-a-Par: 
+							as redes estruturadas e as não-estruturadas.</p>
 
 							<br>
 							<br>
