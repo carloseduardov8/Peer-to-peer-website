@@ -54,11 +54,21 @@
 						<section id="content">
 							<a href="#" class="image fit"><img src="images/applications2.png" alt="" class="headerImage"/></a>
 							<h3>BitTorrent</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>Um dos protocolos P2P mais populares para a distribuição de arquivos é o BitTorrent. O conjunto de todos os pares participantes de uma distribuição de um arquivo específico é chamado de <i>torrent</i>. O descarregamento de arquivos é feito em pedaços de tamanhos idênticos entre os pares, em geral o tamanho é de 256 KBytes. Quando um usuário entra na rede ele não possui nenhum pedaço e é necessário, naturalmente, primeiro descarregar partes do arquivo antes que seja possível compartilhá-lo. Depois de adquiri o arquivo em sua integridade, o usuário pode decidir simplesmente sair do <i>torrent</i> ou permanecer e contribuir distribuindo pedaços para outros pares.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Cada <i>torrent</i> possui um nó de infraestrutura chamado de <i>tracker</i>. Quando um par entra em um <i>torrent</i>, este par se registra com o <i>tracker</i> e periodicamente o informa que ainda está na rede. Assim, o <i>tracker</i> mantém registro de todos os pares que estão participando do <i>torrent</i>. É interessante ter em mente a escalabilidade de um <i>torrent</i>, visto que o mesmo pode ter até milhares de pares participando ao mesmo tempo.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Quando um novo par entra na rede, o <i>tracker</i> aleatoriamente seleciona um subconjunto de pares e envia seus endereços IP ao par recém-chegado. A partir desta lista de IPs o novo par tenta estabelecer conexões TCP com os pares listados. Os pares com os quais a conexão foi estabelecida com sucesso são nomeados pares vizinhos. Com o passar do tempo alguns destes pares podem sair e outros pares podem tentar estabelecer uma conexão TCP com o nó inicial.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>A cada certo intevalo de tempo, o par inicial solicitará uma lista com os pedaços do arquivo que cada um de seus vizinhos possui. Com isto, este nó poderá pedir os pedaços que ainda não possui do arquivo. Eventualmente, este par terá que decidir quais pedaços pedir aos vizinhos e para quais vizinhos enviar pedaços solicitados. A técnica utilizada para determinar qual o pedaço a ser solicitado é chamada de <i>rarest first</i> que consiste em selecionar os pedaços que têm menos cópias repetidas dentre os vizinhos. Na hora de decidir para quais pares responder é dada prioridade aos vizinhos que atualmente estão fornecendo dados à taxas mais altas.</p>
-							<a href="#" class="image text"><img src="images/file distribution bittorrent.png" alt="" ></a>
+							<p class="paragraphText"><span class="spaceTab"></span>Um dos protocolos P2P mais populares para a distribuição de arquivos é o BitTorrent. Um <i>torrent</i> nada mais é do que um arquivo que contém metadados
+							sobre o conteúdo a ser requisitado, que por sua vez se encontra dividido em pedaços de tamanhos idênticos (normalmente 256 KBytes) entre os pares que possuem tal conteúdo. Durante a etapa de <i>download</i>,
+							um par estará, simultaneamente, baixando e fornecendo pedaços. Como veremos mais a frente, esta dualidade é importante para a saúde da rede.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Cada <i>torrent</i> aponta para pelo menos um nó de infraestrutura chamado de <i>tracker</i>. Quando um par entra em uma rede BitTorrent, este par se 
+							registra com o <i>tracker</i> e, através dele, obtém um subconjunto de endereços IP relevantes escolhidos aleatoriamente dentre os registrados. Assim, conexões TCP são formadas entre o novo par e os nós recém-descobertos,
+							que logo se tornarão vizinhos.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>A cada intevalo de tempo, um dado par solicitará uma lista com os pedaços do arquivo que cada um de seus vizinhos possui, permitindo-o requisitar os pedaços faltantes.
+							Eventualmente, este par terá que decidir quais pedaços pedir aos vizinhos e para quais vizinhos dar prioridade na hora de enviar dados. A técnica utilizada para determinar esta primeira dinâmica é chamada de <i>"rarest first"</i>, consistindo em 
+							requisitar primeiro os pedaços mais escassos dentre os vizinhos e, consequentemente, aumentar o número de cópias disponíveis deste pedaço outrora raro. Por outro lado, na hora de decidir para quais pares enviar mais dados, 
+							um par deverá dar prioridade aos vizinhos que fornecem a taxas mais altas. Esta última dinâmica se chama <i>"tit-for-tat"</i>, traduzindo a ideia de "troca equivalente".</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Com o passar do tempo, pares antigos podem sair da rede e novos nós podem tentar estabelecer uma conexão TCP com o nó inicial. Afinal, uma rede como esta possui alto nível de
+							escalabilidade e conectividade ad-hoc, em que um enorme número de nós pode entrar ou se desconectar a qualquer momento sem desestabilizar a dinâmica.</p>
+							
+							<br>
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/file_distribution_bittorrent.png" alt="" /></span></div>
 
 							<br>
 							<br>
