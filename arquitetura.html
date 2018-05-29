@@ -95,6 +95,7 @@
 							possui uma distribuição serializada, as redes Par-a-Par possibilitam a obtenção de conteúdo e processamento a partir de diferentes nós da rede.</p>
 							<br>
 							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/scalability.png" alt="" /></span></div>
+							<br>
 
 							<h3>Arquitetura Par-a-Par e o Conceito de Rede Sobreposta</h3>
 							<p class="paragraphText"><span class="spaceTab"></span>Para continuarmos a estudar a arquitetura Par-a-Par, é necessário compreender o conceito de redes sobrepostas. Provenientes do inglês <i>"overlay networks"</i>, tais redes são
@@ -111,44 +112,30 @@
 							<br>
 							<br>
 
-							<h3>Redes não estruturadas</h3>
+							<h3>Redes sobrepostas não-estruturadas</h3>
 
-							<p class="paragraphText"><span class="spaceTab"></span>As redes não-estruturadas <ins>não possuem uma estrutura definida</ins> na rede de sobreposição e não usam algoritmos específicos para organizar as conexões da rede. Cada nó estabelece conexões aleatoriamente entre outros nós.</p>
-							<a href="#" class="image text"><img src="images/P2P-Não-Estruturados_adaptado.jpg" alt=""></a>
-							<br/>
-							<table style="width:100%">
-							  <tr>
-							    <th>Vantagens</th>
-							    <th>Desvantagens (Sistema de <ins>busca por inundação</ins>)</th>
-							  </tr>
-							  <tr>
-							    <td>Simplicidade: São fáceis de construir</td>
-							    <td>A requisição de dados causa muito tráfego de sinalização</td>
-							  </tr>
-							  <tr>
-							    <td>Permitem otimizações em diferentes regiões da sobreposição</td>
-							    <td>Não garante a busca do conteúdo pesquisado</td>
-							  </tr>
-							  <tr>
-							    <td>Altamente robustas devido as altas taxas de “rotatividade” dos pares na rede</td>
-							    <td>	</td>
-							  </tr>
-							</table>
+							<p class="paragraphText"><span class="spaceTab"></span>As redes não-estruturadas não possuem uma estrutura definida na rede de sobreposição e não usam algoritmos específicos para organizar 
+							as conexões da rede, sendo que cada nó estabelece conexões aleatoriamente entre outros nós. A imagem abaixo ilustra e complementa essa definição, sinalizando pontos fortes e fracos:</p>
+							<br>
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/P2P-Não-Estruturados_adaptado.jpg" alt="" /></span></div>
+							<br>
 
-							<p class="paragraphText"><span class="spaceTab"></span>Existem três tipos de redes não estruturadas:</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Podemos ainda classificar as redes não-estruturadas em três tipos distintos, dependendo da maneira como a arquitetura P2P é utilizada:</p>
 							<ul class="listItems">
-								<li><ins>P2P pura:</ins> Uma arquitetura de rede p2p pura é completamente descentralizada, não há um elemento central (diferentemente do modelo cliente-servidor), apenas uma camada de roteamento, pois todos os nós possuem papel equivalente, como visto anteriormente, o sistema de busca é por inundação, que gera certas desvantagens.
-									No entanto, aplicações P2P “puras” são raras. A maioria das arquiteturas P2P é híbrida, utilizando alguns elementos centralizadores na execução de tarefas cujo desempenho é crítico.<br/>Exemplo:<ins>Gnutella</ins>,<ins>Freenet</ins>.
+								<li><u>P2P pura:</u> Nesta modalidade, a arquitetura é completamente descentralizada e não há um elemento central, sendo o completo oposto do modelo cliente-servidor.
+								Todos os nós possuem papel equivalente e o sistema de busca é por inundação, gerando certas desvantagens. Exemplos são o <i>Gnutella</i> e o <i>Freenet</i>. Devido às desvantagens, aplicações P2P “puras” 
+								são raras e a maioria das arquiteturas P2P é híbrida, utilizando alguns elementos centralizadores na execução de tarefas cujo desempenho é mais crítico.
 								</li>
-								<li><ins>P2P híbrida:</ins> Nesse tipo de arquitetura existem alguns nós especiais, chamados de supernós. Supernós concedem o ingresso dos nós na rede, indexam os recursos compartilhados pelos nós e liberam a busca por estes recursos. Quando localizado um determinado recurso pode ser obtido a partir da interação direta entre os nós. Uma falha em um supernó pode ser tolerada elegendo dinamicamente outro supernó.<br/>
-									Exemplo: <ins>Kazza</ins> e <ins>Bittorrent</ins>.
+								<li><u>P2P híbrida:</u> Aqui, existem alguns nós especiais, chamados de supernós, que realizam ações de coordenação como conceder o ingresso dos nós na rede, indexar os dados compartilhados 
+								e liberar a busca por recursos que, quando localizados, podem ser trocados a partir da interação direta entre os nós convencionais. Dependendo da implementação, uma falha em um supernó pode ser 
+								tolerada de diversas formas, como, por exemplo, escolhendo-se um outro supernó.	Exemplos de redes P2P híbridas são o <i>Kazza</i> e o <i>Bittorrent</i>.
 								</li>
-								<li><ins>P2P centralizada:</ins> São redes híbridas, mas também possuem servidores centrais que controlam as entradas e saídas de nós na rede. Os nós registram no servidor central os recursos que compartilharão na rede. As pesquisas por recursos disponíveis nos pares são executadas pelo servidor central, o servidor prove banda e processamento, enquanto o acesso aos recursos é efetuado diretamente entre os pares (transferência de dados é P2P).<br/>
-									Exemplo: <ins>eMule</ins>, <ins>Napster</ins>.
+								<li><u>P2P centralizada:</u> Apesar de serem redes híbridas, possuem verdadeiros servidores centrais que controlam as entradas e as saídas dos nós na rede, nos quais cada par deve registrar os recursos a serem
+								compartilhados. As pesquisas por recursos disponíveis são executadas pelo servidor central, enquanto o acesso aos recursos é efetuado diretamente entre os pares no mesmo paradigma de transferência Par-a-Par.
+								Exemplos desse paradigma centralizador são o <i>eMule</i> e o <i>Napster</i>.
 								</li>
 							</ul>
-							<p class="paragraphText"><span class="spaceTab"></span>Exemplos de protocolos P2P não estruturados: <ins>Gnutella</ins>, <ins>Gossip</ins>, <ins>Kazaa</ins>.
-							</p>
+
 
 							<h3>Redes Estruturadas</h3>
 							<p class="paragraphText"><span class="spaceTab"></span>As redes estruturadas usam algoritmos e critérios específicos para organizar as conexões da rede. Possuem protocolos que garantem que qualquer nó possa encaminhar uma busca a outro nó que dispõe do arquivo desejado. O procedimento mais utilizado é usando o protocolo DHT (Distributed Hash Tables), ele organiza os processos através de uma tabela hash distribuída. O DHT garante que qualquer nó pode eficientemente buscar na rede um recurso ou arquivo, mesmo quando esse dado recurso é muito raro. </p>
