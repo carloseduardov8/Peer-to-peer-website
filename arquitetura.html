@@ -53,6 +53,7 @@
 					<!-- Content -->
 						<section id="content">
 							<a href="#" class="image fit"><img src="images/architecture2.png" alt="" class="headerImage"/></a>
+							<br>
 							<h2>Arquitetura Par-a-Par</h2>
 							<p class="paragraphText"><span class="spaceTab"></span>Nesta seção, iremos comparar a arquitetura Par-a-Par com as características já conhecidas das dinâmicas cliente-servidor, além de explorar
 							os diferentes modelos de se conectar uma rede P2P.</p>
@@ -155,12 +156,28 @@
 
 
 							<h3>Tabelas <i>Hash</i> Distribuídas (DHT)</h3>
-							<p class="paragraphText"><span class="spaceTab"></span>Esta classe de sistema distribuído, diferentemente das demais, oferece uma forma de roteamento mais estruturada de modo a obter 
+							
+							<p class="paragraphText"><span class="spaceTab"></span>Esta classe de sistema distribuído oferece uma forma de roteamento mais estruturada de modo a obter 
 							tanto descentralização quanto eficiência. Uma DHT é particularmente útil quando deseja-se criar um banco de dados distribuído de modo a alcançar maior escalabilidade.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Para atingir este objetivo, distribui-se pares de <i>(chave, valor)</i> entre os nós da rede de maneira que cada nó tenha posse de 
-							apenas um pequeno subconjunto de todas as tuplas <i>(chave, valor)</i> existentes. Assim, qualquer nó na rede pode realizar uma consulta no banco de dados com uma chave. O banco de dados localizará os nós que possuem o par (chave, valor) correspondente e retornará à informação para o nó que iniciou a consulta (Quando nos referimos à “chave”, estamos nos referindo ao hash da chave original.).</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Uma abordagem <b><ins>não</ins></b> escalável para se criar o banco de dados é fazer com que cada nó mantenha uma lista dos endereços IP de todos os nós participantes da rede, pois exigiria que cada nó rastreasse todos os outros nós, e que cada consulta fosse enviada a todos os nós.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Uma abordagem mais efetiva consiste em atribuir um identificador a cada nó, onde cada identificador é um número inteiro de 0 a 2^(n-1). De modo que o número de vizinhos por nó e número de mensagens por consulta seja mantido em um tamanho aceitável, uma forma de fazer isso é usar a sobreposição circular.</p>
+							
+							<p class="paragraphText"><span class="spaceTab"></span>Para atingir este objetivo, distribui-se tuplas de <i>(chave, valor)</i> entre os nós da rede de maneira que cada nó tenha posse de 
+							apenas um pequeno subconjunto de todas as tuplas <i>(chave, valor)</i> existentes. Assim, qualquer nó na rede, em posse de uma chave, poderá realizar uma consulta no banco de dados, que localizará os nós que possuem 
+							a tupla <i>(chave, valor)</i> correspondente e retornará a informação para o nó que iniciou a consulta. Precisamos, então, pensar em estratégias de identificar facilmente qual nó possui qual tupla.</p>
+							
+							<p class="paragraphText"><span class="spaceTab"></span>Uma abordagem ingênua e <b>não</b> escalável para se criar o banco de dados seria fazer com que cada nó mantivesse uma lista dos endereços IP de todos os nós
+							participantes da rede. No entanto, isto exigiria que cada nó individual rastreasse todos os outros, quebrando a ideia de conectividade ad-hoc. Logo, uma abordagem mais efetiva seria atribuir um identificador 
+							a cada nó da rede, em que cada ID seria um número inteiro de 0 a 2<sup>(n-1)</sup>. Se distribuirmos as tuplas <i>(chave, valor)</i> de modo que cada nó receba uma tupla apenas se seu ID for o mais próximo de um <b>hash</b> da chave correspondente,
+							poderemos encontrá-lo mais facilmente no futuro. A tabela abaixo exemplifica os diferentes campos de informação existentes.</p>
+							
+							<br>
+							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/dht_example.png" alt="" /></span></div>
+							<br>
+							
+							<p class="paragraphText"><span class="spaceTab"></span>De fato, a abordagem descrita acima é amplamente utilizada nos sistemas de DHT. Vamos ver agora um exemplo em que os pares <i>(chave, valor)</i> serão distribuídos
+							de acordo com a seguinte regra: um par (K, valor) será dado para o nó J, em que J é o sucessor imediato do resultado do hash de K. Para ilustrar, suponha um espaço de ID {0, 1, 2, 3, ..., 63}. Os 8 nós da rede possuem
+							os IDs 1, 12, 13, 25, 32, 40, 48, 60. Se o hash da chave for 51, iremos dar sua tupla <i>(chave, valor)</i> ao nó 60. Se o hash da chave for 60, sua tupla também irá para o nó 60. Se for 61, daremos a tupla para o nó 1. Este é apenas
+							um exemplo,	podendo existir diferentes outras regras de atribuição que irão depender da implementação.</p>
+							
 							<li><b>Circular Distributed Hash Table</b></li>
 							<p class="paragraphText"><span class="spaceTab"></span>Para lidar com o problema de escalabilidade, podemos organizar os nós em um círculo. Onde cada nó só mantém o controle do seu sucessor imediato. Particularmente, cada nó só conhece, seu sucessor imediato e seu antecessor imediato. </p>
 							<br>
