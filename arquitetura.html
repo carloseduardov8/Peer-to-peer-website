@@ -34,7 +34,7 @@
 						<li><a href="index.html">Início</a></li>
 						<li><a href="introducao.html">Introdução</a></li>
 						<li><a href="aplicacoes.html">Aplicações</a></li>
-						<li><a href="arquitetura.html">Arquitetura</a></li>
+						<li><a href="arquitetura.html">Arquitetura e Algoritmos</a></li>
 						<li><a href="grafos.html">Análise de Grafos</a></li>
 						<li><a href="questoes.html">Questões</a></li>
 						<li><a href="bibliografia.html">Bibliografia</a></li>
@@ -148,6 +148,7 @@
 							
 							<hr>
 							<br>
+
 							
 							<h2>Algoritmos e Modelos</h2>
 							
@@ -178,15 +179,19 @@
 							os IDs 1, 12, 13, 25, 32, 40, 48, 60. Se o hash da chave for 51, iremos dar sua tupla <i>(chave, valor)</i> ao nó 60. Se o hash da chave for 60, sua tupla também irá para o nó 60. Se for 61, daremos a tupla para o nó 1. Este é apenas
 							um exemplo,	podendo existir diferentes outras regras de atribuição que irão depender da implementação.</p>
 							
-							<li><b>Circular Distributed Hash Table</b></li>
-							<p class="paragraphText"><span class="spaceTab"></span>Para lidar com o problema de escalabilidade, podemos organizar os nós em um círculo. Onde cada nó só mantém o controle do seu sucessor imediato. Particularmente, cada nó só conhece, seu sucessor imediato e seu antecessor imediato. </p>
+							<p class="paragraphText"><span class="spaceTab"></span>Uma das arquiteturas mais famosas das DHTs é a da topologia em anel, da qual deriva-se o nome Tabelas <i>Hash</i> Distribuídas Circulares. Aqui, cada nó apenas mantém uma rota para seu 
+							sucessor e seu antecessor imediatos. A <i>figura A</i> abaixo ilustra esta ideia, enquanto a <i>figura B</i> já começa a dar uma ideia de como este sistema pode ser melhorado:</p>
 							<br>
 							<div class="4u 6u(3) centerImage size1"><span class=" image fit"><img src="images/DHT_circular.png" alt="" /></span></div>
 							<br>
-							<p class="paragraphText"><span class="spaceTab"></span>Por exemplo (figura A): Supondo que o nó 7 deseja se comunicar com o nó responsável pela chave 15, para inserir ou consultar um par (valor, chave). Usando a sobreposição circular, o nó 7 envia uma mensagem para o seu sucessor imediato, o nó 9, perguntando quem é o responsável pela chave 15. O nó 9 não é o responsável pela chave 15, logo ele repassa a mensagem para o seu sucessor imediato. Assim o DHT circular fornece uma solução para reduzir a quantidade de informações de sobreposição que cada nó deve gerenciar.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Porém, essa solução apresenta outro problema, para encontrar o nó responsável por uma determinada chave, no pior dos casos, todos os N nós no DHT terão que encaminhar uma mensagem ao redor do círculo.</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Podemos melhorar ainda mais a sobreposição circular, adicionando atalhos para que cada par não apenas acompanhe seu sucessor imediato, mas também de um número pequeno de pares atalhos espalhados no círculo. Reduzindo consideravelmente o número de mensagens usadas para processar uma consulta (facilita o roteamento de mensagens de uma busca).</p>
-							<p class="paragraphText"><span class="spaceTab"></span>Com DHT circular mais “atalhos” (figura B), usando o exemplo anterior, agora o nó 7 pode se comunicar diretamente com o nó responsável pela chave 15.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Por exemplo, na <i>figura A</i>, suponha que o nó 7 deseja se comunicar com o nó responsável pela chave 15, a fim de inserir ou consultar uma tupla <i>(chave, valor)</i>. 
+							Usando a sobreposição circular, o nó 7 envia uma mensagem para o seu sucessor imediato (nó 9), perguntando quem é o responsável pela chave 15. Como o nó 9 não é o responsável pela chave 15, ele repassa a mensagem para o seu
+							sucessor imediato. Assim, a DHT circular fornece uma alternativa para reduzir a quantidade de informações de sobreposição que cada nó deve gerenciar.</p>
+							<p class="paragraphText"><span class="spaceTab"></span>Porém, essa solução apresenta outro problema: para encontrar o nó responsável por uma determinada chave, no pior dos casos, todos os N 
+							nós da DHT terão que encaminhar uma mensagem ao redor do círculo. A fim de melhorar esta arquitetura, podemos adicionar atalhos para que cada par não acompanhe apenas os seus vizinhos imediatos,
+							mas também um número pequeno de "pares-atalhos" espalhados pelo círculo (<i>figura B</i>). Desta forma, reduzimos consideravelmente o número de mensagens usadas para processar uma consulta (no exemplo, o nó 7 falaria diretamente com
+							o nó 15, diminuindo substancialmente o uso de recursos por mensagem).</p>
+
 
 							<br>
 							<h3>Diretório Centralizado</h3>
